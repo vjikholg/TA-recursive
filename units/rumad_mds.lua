@@ -129,6 +129,7 @@ return {
 				impulseboost = 0,
 				impulsefactor = 0,
 				interceptor = 16,
+				interceptSolo = true, -- from false -> true, now only one MDS can intercept a missile at a time
 				name = "Missile/Rocket Interceptor",
 				noselfdamage = true,
 				range = 1000,
@@ -142,7 +143,7 @@ return {
 				thickness = 5,
 				turret = true,
 				weapontype = "LaserCannon",
-				weaponvelocity = 1700,
+				weaponvelocity = 2000,
 				damage = {
 					default = 1,
 				},

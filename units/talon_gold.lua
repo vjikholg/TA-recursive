@@ -37,7 +37,7 @@ return {
 		mass = 118620,
 		maxdamage = 300045,
 		maxslope = 10,
-		maxvelocity = 1.2,
+		maxvelocity = 1.4,
 		maxwaterdepth = 0,
 		mobilestandorders = 1,
 		name = "Gold",
@@ -126,7 +126,7 @@ return {
 				name = "Mounted antimatter accelerator",
 				noexplode = true,
 				noselfdamage = true,
-				range = 1500,
+				range = 2200,
 				reloadtime = 8,
 				rgbcolor = "0.1 0.9 1.0",
 				soundhitdry = "",
@@ -170,7 +170,7 @@ return {
 				impulsefactor = 0,
 				intensity = 1,
 				name = "Talon Gatling",
-				range = 1200,
+				range = 1800,
 				reloadtime = 0.2,
 				rgbcolor = "0.15 0.15 1",
 				soundhitdry = "xplomed2",
@@ -188,7 +188,7 @@ return {
 				weaponvelocity = 900,
 				damage = {
 					commanders = 125,
-					default = 250,
+					default = 500,
 					subs = 5,
 				},
 				tracks = false,
@@ -210,8 +210,8 @@ return {
 				impulsefactor = 0,
 				name = "Flak Cannon",
 				noselfdamage = true,
-				range = 1000,
-				reloadtime = 0.2,
+				range = 2000,     -- frin 1000, thing gets mogged by air 
+				reloadtime = 0.1, -- from 0.2
 				rgbcolor = "1.0 0.5 0.0",
 				size = 5,
 				soundhitdry = "flakhit",
@@ -225,7 +225,7 @@ return {
 				damage = {
 					areoship = 62.5,
 					default = 5,
-					air = 250,
+					air = 500, -- from 250
 				},
 				tracks = false,
 			},

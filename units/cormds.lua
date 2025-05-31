@@ -130,10 +130,11 @@ return {
 				impulseboost = 0,
 				impulsefactor = 0,
 				interceptor = 16,
+				interceptSolo = true, -- from false -> true, now only one MDS can intercept a missile at a time
 				name = "Missile/Rocket Interceptor",
 				noselfdamage = true,
 				range = 1200,
-				reloadtime = 0.75,
+				reloadtime = 0.375,
 				rgbcolor = "0.000 0.012 1.000",
 				soundhitdry = "lasrhvy2",
 				soundhitwet = "sizzle",
@@ -143,7 +144,7 @@ return {
 				thickness = 5,
 				turret = true,
 				weapontype = "LaserCannon",
-				weaponvelocity = 1700,
+				weaponvelocity = 2000,
 				damage = {
 					default = 1,
 				},

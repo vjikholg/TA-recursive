@@ -4,7 +4,7 @@ return {
 		brakerate = 0,
 		buildangle = 4096,
 		buildcostenergy = 88050,
-		buildcostmetal = 5150,
+		buildcostmetal = 4150, -- from 5150
 		builder = false,
 		buildinggrounddecaldecayspeed = 30,
 		buildinggrounddecalsizex = 6,
@@ -30,7 +30,7 @@ return {
 		idleautoheal = 5,
 		idletime = 1800,
 		losemitheight = 79,
-		mass = 5150,
+		mass = 4150,
 		maxdamage = 8950,
 		maxslope = 10,
 		maxvelocity = 0,

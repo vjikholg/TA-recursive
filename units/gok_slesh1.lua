@@ -1,7 +1,7 @@
 return {
 	gok_slesh1 = {
-		buildcostenergy = 142201,
-		buildcostmetal = 9018,
+		buildcostenergy = 388050, -- from 88050, parity with talon_blt1
+		buildcostmetal = 18415, -- from 4150, parity with talon_blt1
 		builder = false,
 		buildinggrounddecaldecayspeed = 30,
 		buildinggrounddecalsizex = 7,
@@ -25,7 +25,7 @@ return {
 		idletime = 1800,
 		losemitheight = 64,
 		mass = 9018,
-		maxdamage = 16930,
+		maxdamage = 18415, -- from 8950, parity with talon_blt1
 		maxslope = 10,
 		maxwaterdepth = 0,
 		name = "Dark Slesh",
@@ -119,14 +119,14 @@ return {
 				craterareaofeffect = 0,
 				craterboost = 0,
 				cratermult = 0,
-				energypershot = 5000,
+				energypershot = 2000, -- from 5000, parity with talon_blt1
 				firestarter = 90,
 				impactonly = 1,
 				impulseboost = 0,
 				impulsefactor = 0,
 				name = "666 Beam",
 				noselfdamage = true,
-				range = 1500,
+				range = 2150,
 				reloadtime = 2,
 				rgbcolor = "0.78 0.08 0.52",
 				soundhitdry = "",
@@ -146,8 +146,8 @@ return {
 					light_radius_mult = 1.2,
 				},
 				damage = {
-					commanders = 2250,
-					default = 4500,
+					commanders = 600, -- from 300, parity with talon_blt1
+					default = 3000,
 					subs = 5,
 				},
 				tracks = false,

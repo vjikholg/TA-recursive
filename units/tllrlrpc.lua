@@ -144,7 +144,7 @@ return {
 				impactonly = true,
 				name = "Ultra lightning Weapon",
 				noselfdamage = true,
-				range = 2500,
+				range = 2600,
 				reloadtime = 1,
 				rgbcolor = "0.9 0.9 0.2",
 				soundstart = "tll_lightning",

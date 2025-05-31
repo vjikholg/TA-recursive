@@ -126,8 +126,9 @@ return {
 				areaofeffect = 375,
 				avoidfeature = false,
 				burnblow = true,
-				burst = 40,
-				burstrate = 0.1,
+				burst = 8,
+				burstrate = 0.5, -- from 0.1, shoots 5 missiles at a time for total 40, mirror battletech LRM20 
+				projectiles = 5, -- new   
 				cegtag = "Core_Def_AA_Rocket",
 				craterareaofeffect = 375,
 				craterboost = 0,
@@ -144,7 +145,7 @@ return {
 				noselfdamage = true,
 				proximitypriority = -1,
 				range = 2400,
-				reloadtime = 40,
+				reloadtime = 60, -- from 40, this unit is busted in DrD
 				smoketrail = true,
 				soundhitdry = "mlrsboom",
 				soundhitwet = "splslrg",

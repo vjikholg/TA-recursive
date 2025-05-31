@@ -176,7 +176,7 @@ return {
 				name = "Missile/Rocket Interceptor",
 				noselfdamage = true,
 				range = 1200,
-				reloadtime = 0.75,
+				reloadtime = 0.375,
 				rgbcolor = "0.000 0.012 1.000",
 				soundhitdry = "lasrhvy2",
 				soundhitwet = "sizzle",

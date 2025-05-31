@@ -1,7 +1,7 @@
 return {
 	gok_slesh = {
-		buildcostenergy = 32205,
-		buildcostmetal = 1915,
+		buildcostenergy = 88050,
+		buildcostmetal = 4150, -- from 1915, parity with talon_blt
 		builder = false,
 		buildinggrounddecaldecayspeed = 30,
 		buildinggrounddecalsizex = 6,
@@ -24,8 +24,8 @@ return {
 		idleautoheal = 5,
 		idletime = 1800,
 		losemitheight = 48,
-		mass = 1915,
-		maxdamage = 3035,
+		mass = 4150, -- from 1915, parity with talon_blt
+		maxdamage = 8950, -- from 3395, parity with talon_blt
 		maxslope = 10,
 		maxwaterdepth = 0,
 		name = "Slesh",
@@ -127,7 +127,7 @@ return {
 				impulsefactor = 0,
 				name = "666 Beam",
 				noselfdamage = true,
-				range = 900,
+				range = 1450,
 				reloadtime = 2,
 				rgbcolor = "0.78 0.08 0.52",
 				soundhitdry = "",
@@ -147,8 +147,8 @@ return {
 					light_radius_mult = 1.2,
 				},
 				damage = {
-					commanders = 900,
-					default = 1800,
+					commanders = 1000,
+					default = 2800,
 					subs = 5,
 				},
 				tracks = false,

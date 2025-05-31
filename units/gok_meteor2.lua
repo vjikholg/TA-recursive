@@ -6,7 +6,7 @@ return {
 		buildcostmetal = 45522,
 		builder = false,
 		buildpic = "gok_meteor2.dds",
-		buildtime = 850000,
+		buildtime = 650000,
 		canattack = true,
 		canstop = 1,
 		category = "ALL SURFACE",
@@ -112,7 +112,7 @@ return {
 		weapondefs = {
 			meteor = {
 				accuracy = 1200,
-				areaofeffect = 128,
+				areaofeffect = 292,
 				avoidfeature = false,
 				craterareaofeffect = 128,
 				energypershot = 10000,
@@ -130,9 +130,9 @@ return {
 				soundhitdry = "supergun_bass_boost",
 				turret = true,
 				weapontype = "Cannon",
-				weaponvelocity = 1200,
+				weaponvelocity = 2400,
 				damage = {
-					default = 1000,
+					default = 2000,
 					subs = 50,
 				},
 				tracks = false,
