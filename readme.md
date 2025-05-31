@@ -1,3 +1,7 @@
+# DISCLAIMER 
+This version of TA is probably unbalanced for PvP. Me and my friends just wanted to tweak some numbers that we found appropiate for Dynamic Robot Defence.
+
+
 # Tech Annihilation
 
 Uses Recoil Engine (https://github.com/beyond-all-reason/spring), fork of Spring Engine (https://springrts.com/). 
