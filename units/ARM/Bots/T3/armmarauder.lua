@@ -48,7 +48,7 @@ return {
 		turninplaceanglelimit = 140,
 		turninplacespeedlimit = 1.815,
 		turnrate = 1056,
-		unitname = "armmarauder",
+		unitname = "Marauder",
 		upright = true,
 		customparams = {
 			buildpic = "armmarauder.dds",

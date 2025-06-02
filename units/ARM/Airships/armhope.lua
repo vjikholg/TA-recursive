@@ -21,7 +21,7 @@ return {
 		collisionvolumetype = "Box",
 		corpse = "dead",
 		cruisealt = 40,
-		description = "Destroyer Areoship",
+		description = "Destroyer Aeroship",
 		dontland = 1,
 		energystorage = 20000,
 		explodeas = "KROG_BLAST",
