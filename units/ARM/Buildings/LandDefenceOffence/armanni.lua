@@ -121,9 +121,15 @@ return {
 			},
 		},
 		weapondefs = {
+			-- I want to make ARM and TALON beam weapons distinct in style, similar in damage
+			-- ARM will draw from a stockpile and fire in style of BT pulse lasers 
 			ata = {
-				areaofeffect = 16,
-				beamtime = 0.5,
+				areaofeffect = 32,
+				beamburst=true, -- this should work
+				beamtime = 0.10,
+				burst = 8,
+				burstRate = 0.0875, -- 6 bursts per second
+				beamdecay = 0.10,
 				corethickness = 0.2,
 				craterareaofeffect = 0,
 				craterboost = 0,
@@ -137,15 +143,17 @@ return {
 				laserflaresize = 20,
 				name = "ATA",
 				noselfdamage = true,
-				range = 1300,
-				reloadtime = 10,
+				range = 1450,
+				reloadtime = 3,
 				rgbcolor = "0 0 1",
 				soundhitdry = "",
 				soundhitwet = "sizzle",
 				soundhitwetvolume = 0.5,
-				soundstart = "annigun1",
-				soundtrigger = 1,
-				sweepfire = false,
+				soundstart = "new_sounds/beamLaser/laser_pulse1.wav",
+				soundtrigger = true,
+				stockpile = true,
+				stockpiletime = 10,
+				sweepfire = true,
 				targetmoveerror = 0.3,
 				thickness = 7,
 				turret = true,
@@ -155,8 +163,8 @@ return {
 					light_radius_mult = 1.2,
 				},
 				damage = {
-					commanders = 4000,
-					default = 8000,
+					commanders = 84,
+					default = 1125,
 					subs = 5,
 				},
 				tracks = false,

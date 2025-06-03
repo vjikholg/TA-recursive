@@ -147,4 +147,28 @@ local Sounds = {
    },
 }
 
+SoundItems.newPulse1 = {
+	file = "sounds/new_sounds/beamLaser/laser_pulse1.wav",
+	pitch = 1,
+	pitchmod = 0.05,
+	gain = 0.5,
+	gainmod = 0.2 * 0.3,
+	dopplerscale = 0,
+	maxconcurrent = 32,
+	rolloff = 1.1,
+	in3D = true,
+}
+
+SoundItems.newPulse2 = {
+	file = "sounds/new_sounds/beamLaser/laser_pulse2.wav",
+	pitch = 1,
+	pitchmod = 0.05,
+	gain = 0.5,
+	gainmod = 0.2 * 0.3,
+	dopplerscale = 0,
+	maxconcurrent = 32,
+	rolloff = 1.1,
+	in3D = true,
+}
+
 return Sounds
