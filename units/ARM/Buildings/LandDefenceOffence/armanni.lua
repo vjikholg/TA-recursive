@@ -137,14 +137,14 @@ return {
 				energypershot = 1800,
 				explosiongenerator = "custom:BURN_WHITE",
 				firestarter = 90,
-				impactonly = 1,
+				impactonly = false,
 				impulseboost = 0,
 				impulsefactor = 0,
-				laserflaresize = 20,
+				laserflaresize = 5,
 				name = "ATA",
 				noselfdamage = true,
 				range = 1450,
-				reloadtime = 3,
+				reloadtime = 3, -- initial high alpha, falls back to close to old anni after stockpile use. 
 				rgbcolor = "0 0 1",
 				soundhitdry = "",
 				soundhitwet = "sizzle",
@@ -159,8 +159,8 @@ return {
 				turret = true,
 				weapontype = "BeamLaser",
 				customparams = {
-					light_mult = 1.8,
-					light_radius_mult = 1.2,
+					light_mult = 1.2,
+					light_radius_mult = 0.6,
 				},
 				damage = {
 					commanders = 84,

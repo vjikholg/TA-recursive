@@ -136,6 +136,7 @@ return {
 				explosiongenerator = "custom:LARGE_BURN_WHITE",
 				impulseboost = 0,
 				impulsefactor = 0,
+				impactonly = false,
 				laserflaresize = 20,
 				name = "ATA",
 				noselfdamage = true,
@@ -145,7 +146,7 @@ return {
 				soundhitdry = "",
 				soundhitwet = "sizzle",
 				soundhitwetvolume = 0.5,
-				soundstart = "new_sounds/beamLaser/laser_pulse2.wav",
+				soundstart = "",
 				soundtrigger = true,
 				sweepfire = true,
 				stockpile = true, 
@@ -156,8 +157,8 @@ return {
 				weapontype = "BeamLaser",
 				weaponvelocity = 1400,
 				customparams = {
-					light_mult = 1.8,
-					light_radius_mult = 1.2,
+					light_mult = 1.2,
+					light_radius_mult = 0.6,
 				},
 				damage = {
 					commanders = 150,
