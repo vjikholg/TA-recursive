@@ -89,10 +89,9 @@ def collect_moves() -> list[dict]:
     return list(uniq.values())
 
 def find_source_file(base: str) -> Path | None:
-    # look for *.ogg, *.wav, *.flac under current sounds tree
-    for ext in [".ogg", ".wav", ".flac", ""]:
-        cand = next(THIS_DIR.rglob(base if ext else base), None)
-        if cand and cand.is_file():
+    for ext in [".ogg", ".wav", ".flac", ".WAV", ""]:
+        cand = next((p for p in THIS_DIR.rglob(base + ext) if p.is_file()), None)
+        if cand:
             return cand
     return None
 
@@ -118,25 +117,33 @@ def preview(moves: list[dict]) -> list[dict]:
     return moves
 
 def execute(moves: list[dict]):
+    DEST_ROOT.mkdir(parents=True, exist_ok=True)
     with open("sound_moves.csv", "w", newline="") as fcsv:
         w = csv.writer(fcsv)
         w.writerow(["src", "tgt", "wtype", "unit"])
+
         for m in moves:
-            src, tgt = m["src"], m["tgt"]
-            if not src:
+            src: Path = m["src"]
+            if not src or not src.exists():
                 print(f"⚠️  missing {m['base']} (skipped)")
                 continue
+
+            # --- NEW: keep the real filename, extension included -------------
+            tgt = DEST_ROOT / m["category"] / src.name
+            # -----------------------------------------------------------------
+
             tgt.parent.mkdir(parents=True, exist_ok=True)
             new_tgt = tgt
-            c = 1
+            counter = 1
             while new_tgt.exists():
-                new_tgt = tgt.with_stem(f"{tgt.stem}_{c}")
-                c += 1
+                new_tgt = tgt.with_stem(f"{tgt.stem}_{counter}")  # keeps suffix
+                counter += 1
+
             shutil.move(src, new_tgt)
-            w.writerow([src.relative_to(THIS_DIR), new_tgt.relative_to(THIS_DIR),
+            w.writerow([src.relative_to(THIS_DIR),
+                        new_tgt.relative_to(THIS_DIR),
                         m["wtype"], m["unit"]])
             print(f"✔ {src.relative_to(THIS_DIR)} → {new_tgt.relative_to(THIS_DIR)}")
-    print("\nLog written to sound_moves.csv")
 
 def main():
     moves = collect_moves()
