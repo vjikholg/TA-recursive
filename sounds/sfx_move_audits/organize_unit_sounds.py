@@ -22,6 +22,9 @@ BASE_MAP = {
     "cant":         "sfx_movement/on-reply",   # single-string table allowed
     "select":       "sfx_movement/on-select",
     "ok":           "sfx_movement/on-movement",
+    "activate":     "sfx_units/on-activate",
+    "deactivate":   "sfx_units/on-deactivate",
+    "arrived":      "sfx_movement/on-arrive",
 }
 
 AIR_OVERRIDE = {
@@ -29,13 +32,16 @@ AIR_OVERRIDE = {
     "cant":    "sfx_movement_air/on-reply",
     "select":  "sfx_movement_air/on-select",
     "ok":      "sfx_movement_air/on-movement",
+    "arrived": "sfx_movement_air/on-arrive",
 }
 
 BUILDING_OVERRIDE = {
-    "working": "sfx_movement_air/on-reply",
-    "cant":    "sfx_movement_air/on-reply",
-    "select":  "sfx_movement_air/on-select",
-    "ok":      "sfx_movement_air/on-movement",
+    "cant":    "sfx_building/on-reply",
+    "select":  "sfx_building/on-select",
+    "ok":      "sfx_building/on-okay",
+    "underattack": "sfx_building/on-underattack",
+    "activate":     "sfx_building/on-activate",
+    "deactivate":   "sfx_building/on-deactivate",
 }
 # ──────────────────────────────────────────────────────────────────────────────
 
@@ -48,6 +54,7 @@ WS = r"[ \t]*"
 QUOTED = r"['\"]([^'\"]+)['\"]"
 TAG = lambda k: re.compile(rf"{WS}{k}{WS}={WS}{QUOTED}", re.I)
 
+RE_ICONTYPE = re.compile(r"\bicontype\b\s*=\s*['\"]building['\"]", re.I)
 RE_CATEGORY = TAG("category")
 RE_SOUNDS = re.compile(r"\bsounds\b[^=]*=", re.I)
 RE_SOUND_KEY= re.compile(rf"{WS}({ '|'.join(BASE_MAP) }){WS}={WS}", re.I)
@@ -88,13 +95,22 @@ def collect_moves() -> list[dict]:
     for ufile in UNITS_DIR.rglob("*.lua"):
         text = ufile.read_text(errors="ignore")
         cat_m = RE_CATEGORY.search(text)
-        is_air = bool(cat_m and "VTOL" in cat_m.group(1).upper())
+        is_building = bool(RE_ICONTYPE.search(text))
+        is_air      = not is_building and bool(RE_CATEGORY.search(text)) and "VTOL" in RE_CATEGORY.search(text).group(1).upper()
         # scan every 'sounds =' block
         for m in RE_SOUNDS.finditer(text):
             block = parse_sounds_block(text, m.end())
             items = extract_sound_items(block)
             for key, files in items.items():
-                folder = AIR_OVERRIDE[key] if is_air and key in AIR_OVERRIDE else BASE_MAP[key]
+                folder = (
+                    BUILDING_OVERRIDE.get(key)
+                    if is_building and key in BUILDING_OVERRIDE
+                    else AIR_OVERRIDE.get(key) if is_air and key in AIR_OVERRIDE
+                    else BASE_MAP[key]
+                )
+                
+                
+                AIR_OVERRIDE[key] if is_air and key in AIR_OVERRIDE else BASE_MAP[key]
                 for f in files:
                     base = Path(f).name  # strip any path pieces
                     moves.append({

@@ -1,0 +1,5 @@
+src,dest,soundKey,unit
+tllvtolstop3.wav,sfx_movement_air\on-arrive\tllvtolstop3.wav,arrived,units\TLL\tlltplane.lua
+tllvtolstop.wav,sfx_movement_air\on-arrive\tllvtolstop.wav,arrived,units\TLL\tllprob.lua
+tllvtolstop2.wav,sfx_movement_air\on-arrive\tllvtolstop2.wav,arrived,units\TLL\tll_wasp.lua
+tllsub2.wav,sfx_movement\on-arrive\tllsub2.wav,arrived,units\TLL\tllplunger.lua
