@@ -1,0 +1,7 @@
+src,dest,keys
+talon_amaker.lua,Buildings\LandEconomy\talon_amaker.lua,converts
+talon_makr.lua,Buildings\LandEconomy\talon_makr.lua,converts
+talon_makr1.lua,Buildings\LandEconomy\talon_makr1.lua,converts
+talon_metalmakerlvl2.lua,Buildings\LandEconomy\talon_metalmakerlvl2.lua,converts
+talon_metalmakerlvl3.lua,Buildings\LandEconomy\talon_metalmakerlvl3.lua,converts
+talon_metalmakerlvl4.lua,Buildings\LandEconomy\talon_metalmakerlvl4.lua,converts

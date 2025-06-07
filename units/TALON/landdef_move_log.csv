@@ -1,0 +1,5 @@
+src,dest,backup
+units\TALON\talon_fgate.lua,units\Buildings\SeaDefenceOffence\talon_fgate.lua,
+units\TALON\talon_fhlt.lua,units\Buildings\SeaDefenceOffence\talon_fhlt.lua,
+units\TALON\talon_frl.lua,units\Buildings\SeaDefenceOffence\talon_frl.lua,
+units\TALON\talon_fsprinkler.lua,units\Buildings\SeaDefenceOffence\talon_fsprinkler.lua,

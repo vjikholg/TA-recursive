@@ -1,0 +1,8 @@
+src,dest,backup
+TALON\talon_ca.lua,T1\talon_ca.lua,
+TALON\talon_carbon.lua,T1\talon_carbon.lua,
+TALON\talon_recon.lua,T1\talon_recon.lua,
+TALON\talon_drone.lua,T1\talon_drone.lua,
+TALON\talon_token.lua,T1\talon_token.lua,
+TALON\talon_wyvern.lua,T1\talon_wyvern.lua,
+TALON\talon_shade.lua,T1\talon_shade.lua,

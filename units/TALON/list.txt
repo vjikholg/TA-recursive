@@ -1,0 +1,7 @@
+talon_ca.lua
+talon_carbon.lua
+talon_recon.lua
+talon_drone.lua
+talon_token.lua
+talon_wyvern.lua
+talon_shade.lua
