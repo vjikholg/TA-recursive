@@ -2,23 +2,23 @@ local Sounds = {
     SoundItems = {
         IncomingChat = {
  	    --- always play on the front speaker(s)
- 		    file = "sounds/beep4.wav",
+ 		    file = "sounds/sfx_ui/beep4.wav",
  		    in3d = "false",
         },
         MultiSelect = {
-		    file = "sounds/button9.wav",
+		    file = "sounds/sfx_ui/button9.wav",
 		    in3d = "false",
         },
         MapPoint = {
-		    file = "sounds/beep6.wav",
+		    file = "sounds/sfx_ui/beep6.wav",
 		    rolloff = 0.3,
 		    dopplerscale = 0,       
         },
         FailedCommand = {
-		    file = "sounds/cantdo4.wav",       
+		    file = "sounds/sfx_ui/cantdo4.wav",       
         },
         warning2 = {
-		    file = "sounds/warning2.wav",
+		    file = "sounds/sfx_ui/warning2.wav",
 		    rolloff = 0.2,
 		    dopplerscale = 0,      
         }
@@ -50,7 +50,7 @@ local Sounds = {
 ]]
 local soundData = {
 	-- UI SOUNDS
-	['ui'] = {
+	['sfx_ui'] = {
 		gain = 0.8,
 		pitchmod = 0,
 		gainmod  = 0,
@@ -60,18 +60,18 @@ local soundData = {
 		rolloff = 0,
 	},
 
-	['uw'] = {
-		gain = 1.2 * 0.3,
-		pitchmod = 0.17,
-		gainmod  = 0.2 * 0.3,
-		dopplerscale = 0,
-		maxconcurrent = 8,
-		--priority = 1,
-		rolloff = 0.1,
-	},
+	-- ['uw'] = {
+	-- 	gain = 1.2 * 0.3,
+	-- 	pitchmod = 0.17,
+	-- 	gainmod  = 0.2 * 0.3,
+	-- 	dopplerscale = 0,
+	-- 	maxconcurrent = 8,
+	-- 	--priority = 1,
+	-- 	rolloff = 0.1,
+	-- },
 
-	-- WEAPON SOUNDS
-	['weapons'] = {
+	-- BAR-WEAPONS SOUNDS
+	['bar-weapons'] = {
 		gain = {
 			default = 1.2 * 0.3,
 			custom = {
@@ -114,24 +114,52 @@ local soundData = {
 		rolloff = 1.4,
 	},
 
-	-- WEAPON SOUNDS MULTI (more concurrent)
-	['weapons-mult'] = {
-		gain = 1.2 * 0.3,
+	
+	['sfx_weapons'] = {
+		gain = {
+			default = 1.2 * 0.3,
+			custom = {
+				['^beamershot2$'] = 0.5 * 0.3,
+				['^disigun1$'] = 0.075 * 0.3,
+				-- ['^newboom$'] = 0.045 * 0.3,
+				['^xplomas2$'] = 0.225 * 0.3,
+			},
+		},
 		pitchmod = {
 			default = 0.17,
 			custom = {
-				['^lasr'] = 0.03,
-				['^mgun'] = 0.02,
+				['^heliosfire$'] = 0.03,
+				['^beamershot2$'] = 0.04,
+				['^lasfirerc$'] = 0.06,
+				['^heatray'] = 0,
+				['^lasr'] = 0,
+				['^nanlath'] = 0.02,
+				['^mavgun'] = 0.06,
+				['^mgun'] = 0.08,
+				['^minigun'] = 0.09,
+				['^lrpcshot'] = 0.12,
+				['^raptorlaser$'] = 0.04,
+				['^heatray3'] = 0.04,
+				['^xplosml'] = 0.22,
+				['^xplomed'] = 0.25,
+				['^xplolrg'] = 0.3,
+				['^nukelaunch$'] = 0.08,
+				['^nukelaunchalarm$'] = 0,
 			},
 		},
 		gainmod  = 0.2 * 0.3,
+		maxconcurrent = {
+			default = 7,
+			custom = {
+				['^minigun'] = 12,
+			},
+		},
 		dopplerscale = 1.0,
-		maxconcurrent = 15,
-		rolloff = 1.5,
+		rolloff = 1.4,
 	},
 
 	-- RAPTOR SOUNDS
-	['raptors'] = {
+	['sfx_chicken'] = {
 		gain = 1.2 * 0.5,
 		pitchmod = {
 			default = 0.23,
@@ -145,40 +173,8 @@ local soundData = {
 		rolloff = 1.1,
 	},
 
-	-- GLOBAL EVENTS not in use currently
-	['global-events'] = {
-		gain = 1.0 * 0.3,
-		pitchmod = 0.33,
-		gainmod  = 0.1 * 0.3,
-		dopplerscale = 1.0,
-		maxconcurrent = 8,
-		rolloff = 0.2,
-	},
-
-	-- BOMB SOUNDS / More maxconcurrent
-	['bombs'] = {
-		gain = 1.2 * 0.3,
-		pitchmod = 0.27,
-		gainmod  = 0.2 * 0.3,
-		dopplerscale = 1.0,
-		maxconcurrent = 32,
-		rolloff = 1.1,
-	},
-
-	-- REPLY SOUNDS
-	['replies'] = {
-		gain = 1.2 * 0.3,
-		pitchmod = 0.02,
-		gainmod  = 0.2 * 0.3,
-		dopplerscale = 0,
-		maxconcurrent = 32,
-		rolloff = 0.05,
-		priority = 1,
-		--in3d = false,
-	},
-
 	-- LAND UNIT MOVEMENT SOUNDS
-	['movement'] = {
+	['sfx_movement'] = {
 		gain = 1.2 * 0.3,
 		pitchmod = 0.062,
 		gainmod  = 0.2 * 0.3,
@@ -189,8 +185,20 @@ local soundData = {
 		--in3d = false,
 	},
 
+		-- REPLY SOUNDS
+	['sfx_movement/on-reply'] = {
+		gain = 1.2 * 0.3,
+		pitchmod = 0.02,
+		gainmod  = 0.2 * 0.3,
+		dopplerscale = 0,
+		maxconcurrent = 32,
+		rolloff = 0.05,
+		priority = 1,
+		--in3d = false,
+	},
+
 	-- AIR UNIT MOVEMENT SOUNDS
-	['movement-air'] = {
+	['sfx_movement_air'] = {
 		gain = 1.2 * 0.3,
 		pitchmod = 0.02,
 		gainmod  = 0.2 * 0.3,
@@ -201,29 +209,17 @@ local soundData = {
 		--in3d = false,
 	},
 
-	-- UNIT FOOTSTEPS SOUNDS // high pitch-mod
-	['unit'] = {
-		gain = 1.2 * 0.3,
-		pitchmod = 0.33,
-		gainmod  = 0.2 * 0.3,
-		dopplerscale = 0.5,
-		maxconcurrent = 6,
-		rolloff = 1.1,
-		priority = 1,
-		--in3d = false,
-	},
-
 	-- UNIT FUNCTION/WEAPON SOUNDS
-	['function'] = {
-		gain = 1.2 * 0.3,
-		pitchmod = 0.02,
-		gainmod  = 0.2 * 0.3,
-		dopplerscale = 0,
-		maxconcurrent = 7,
-		rolloff = 0.1,
-		priority = 1,
-		--in3d = false,
-	},
+	 ['sfx_units'] = {
+	 	gain = 1.2 * 0.3,
+	 	pitchmod = 0.02,
+	 	gainmod  = 0.2 * 0.3,
+	 	dopplerscale = 0,
+	 	maxconcurrent = 7,
+	 	rolloff = 0.1,
+	 	priority = 1,
+	 	--in3d = false,
+	 },
 
 	-- BUILDING FUNCTION/WEAPON SOUNDS
 	['sfx_buildings'] = {
