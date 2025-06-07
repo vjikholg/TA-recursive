@@ -21,15 +21,13 @@ from pathlib import Path
 
 # ───── USER SETTINGS ──────────────────────────────────────────────────────────
 SEARCH_TERMS = [
-    "Engineer Hover",
-    "Detector",
-    "Concealer",
-    "Python",
-    "Iguana",
-    "Undertow",
-    "Mamba",
-    "Destrustor",
-    "Tempest"
+    "Hasseloff",
+    "Radar Tower",
+    "Jammer Tower",
+    "Juno",
+    "Center Station",
+    "Countermeasure System",
+    "Advanced Jammer Tower"
 ]
 
 DESTINATION = "../matched_lua_files"

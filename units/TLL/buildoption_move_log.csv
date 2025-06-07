@@ -1,0 +1,8 @@
+src,dest,backup?
+G:\spring-experimental\TA-recursive\units\TLL\tllca.lua,G:\spring-experimental\TA-recursive\units\TLL\Aircraft\T1\tllca.lua,
+G:\spring-experimental\TA-recursive\units\TLL\tlltsetse.lua,G:\spring-experimental\TA-recursive\units\TLL\Aircraft\T1\tlltsetse.lua,
+G:\spring-experimental\TA-recursive\units\TLL\tllprob.lua,G:\spring-experimental\TA-recursive\units\TLL\Aircraft\T1\tllprob.lua,
+G:\spring-experimental\TA-recursive\units\TLL\tllfight.lua,G:\spring-experimental\TA-recursive\units\TLL\Aircraft\T1\tllfight.lua,
+G:\spring-experimental\TA-recursive\units\TLL\tlltplane.lua,G:\spring-experimental\TA-recursive\units\TLL\Aircraft\T1\tlltplane.lua,
+G:\spring-experimental\TA-recursive\units\TLL\tllbomber.lua,G:\spring-experimental\TA-recursive\units\TLL\Aircraft\T1\tllbomber.lua,
+G:\spring-experimental\TA-recursive\units\TLL\tll_wasp.lua,G:\spring-experimental\TA-recursive\units\TLL\Aircraft\T1\tll_wasp.lua,
