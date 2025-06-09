@@ -84,7 +84,7 @@ return {
 			canceldestruct = "cancel2",
 			underattack = "warning1",
 			arrived = {
-				"bigstop",
+				"tllvtolstop3",
 			},
 			cant = {
 				"cantdo4",
@@ -98,10 +98,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"biggo",
+				"arm-air-gunship-alt-ok",
 			},
 			select = {
-				"bigsel",
+				"arm-air-gunship-alt-sel",
 			},
 		},
 		weapondefs = {
@@ -123,7 +123,7 @@ return {
 				name = "LightningGun",
 				noselfdamage = true,
 				projectiles = 6,
-				range = 1500,
+				range = 2500, -- actually useful!?
 				reloadtime = 3,
 				rgbcolor = "0.5 0.5 1",
 				soundstart = "tll_lightning",
@@ -139,7 +139,7 @@ return {
 				},
 				damage = {
 					commanders = 600,
-					default = 2400,
+					default = 4800,
 					subs = 5,
 				},
 				tracks = false,

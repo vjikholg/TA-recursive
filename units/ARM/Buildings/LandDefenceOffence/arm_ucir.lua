@@ -128,8 +128,8 @@ return {
 				name = "Long Range Missile",
 				noselfdamage = true,
 				proximitypriority = -1.5,
-				range = 3000,
-				reloadtime = 2,
+				range = 6000, -- from 3000
+				reloadtime = 1,
 				smoketrail = true,
 				soundhitdry = "impact",
 				soundstart = "launch",
@@ -141,9 +141,9 @@ return {
 				weaponacceleration = 300,
 				weapontimer = 4,
 				weapontype = "MissileLauncher",
-				weaponvelocity = 1800,
+				weaponvelocity = 3600, -- from 1800
 				damage = {
-					areoship = 750,
+					areoship = 5000,
 					default = 5,
 					air = 3000,
 				},

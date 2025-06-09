@@ -74,6 +74,7 @@ return {
 			[15] = "armorbital",
 			[16] = "armvulc1",
 			[17] = "armusy",
+			[18] = "armnebraska", -- new "native" T4 defence. 
 		},
 		customparams = {
 			buildpic = "armspid.dds",

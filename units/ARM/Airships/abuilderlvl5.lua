@@ -57,7 +57,7 @@ return {
 			[4] = "arm_ulab",
 			[5] = "ashipyardlvl3",
 			[6] = "armnanotc4",
-			--[7] = "armurad",
+			[7] = "armurad",
 			[8] = "armujam",
 			[9] = "armnebraska",
 			[10] = "armgate3",
@@ -66,7 +66,7 @@ return {
 			[13] = "armorbital",
 			[14] = "armvulc1",
 			[15] = "armtabi",
-			--[16] = "armarch",
+			[16] = "armarch", -- reenabled
 		},
 		customparams = {
 			buildpic = "abuilderlvl5.dds",
@@ -107,7 +107,7 @@ return {
 			canceldestruct = "cancel2",
 			underattack = "warning1",
 			arrived = {
-				[1] = "armshipstop",
+				[1] = "tllvtolstop3",
 			},
 			cant = {
 				[1] = "cantdo4",
@@ -121,10 +121,10 @@ return {
 				[6] = "count1",
 			},
 			ok = {
-				[1] = "armshipgo",
+				[1] = "arm-air-transport-large-ok",
 			},
 			select = {
-				[1] = "armselect",
+				[1] = "arm-air-transport-large-sel",
 			},
 		},
 	},

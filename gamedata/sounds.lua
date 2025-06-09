@@ -77,9 +77,9 @@ local soundData = {
 				['pulselaser-3'] = 3.0,
 				['pulselaser-4'] = 3.0,
 				['pulselaser-5'] = 3.0,
-				['laser_level1'] = 1.0,
-				['laser_level2'] = 1.0,
-				['laser_level3'] = 1.0,
+				['laser_level1'] = 1.5,
+				['laser_level2'] = 1.5,
+				['laser_level3'] = 1.5,
 			},
 		},
 		pitchmod = {
@@ -93,9 +93,9 @@ local soundData = {
 				['^heatray3'] = 0.04,
 				['^pulselaser-1'] = 0.3,
 				['^pulselaser-2'] = 0.3,
-				['laser_level1'] = 0.2,
-				['laser_level2'] = 0.2,
-				['laser_level3'] = 0.1,
+				['laser_level1'] = 0.3,
+				['laser_level2'] = 0.3,
+				['laser_level3'] = 0.2,
 			},
 		},
 	},
@@ -111,11 +111,17 @@ local soundData = {
 	},
 
 	['weapons-Cannon'] = {
-		gain = 1.0 * 0.3,
+		gain = {
+			default = 1.0 * 0.3,
+			custom = {
+				['gauss5'] = 0.5,
+				['lbx1'] = 0.2
+			},
+		},
 		pitchmod = 0.33,
 		gainmod  = 0.1 * 0.3,
-		dopplerscale = 1.0,
-		maxconcurrent = 8,
+		dopplerscale = 2.0,
+		maxconcurrent = 64,
 		rolloff = 0.2,
 	},
 

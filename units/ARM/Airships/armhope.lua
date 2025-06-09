@@ -130,7 +130,7 @@ return {
 				model = "weapon_rocketl.s3o",
 				name = "Barrarge",
 				proximitypriority = -1,
-				range = 1800,
+				range = 3000, -- missiles can be shot down... so i mean
 				reloadtime = 20,
 				smoketrail = true,
 				soundhitdry = "mlrsboom",
@@ -149,7 +149,7 @@ return {
 				tracks = false,
 				turnrate = 0,
 				turret = false,
-				weaponacceleration = 120,
+				weaponacceleration = 240,
 				weapontimer = 15,
 				weapontype = "MissileLauncher",
 				weaponvelocity = 800,
