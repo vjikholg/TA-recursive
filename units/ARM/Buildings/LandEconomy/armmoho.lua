@@ -115,7 +115,7 @@ return {
 				[1] = "twractv2",
 			},
 			select = {
-				[1] = "mohoon1",
+				[1] = "arm-bld-metal",
 			},
 		},
 	},

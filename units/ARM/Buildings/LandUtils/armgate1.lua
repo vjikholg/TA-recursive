@@ -104,10 +104,10 @@ return {
 				[6] = "count1",
 			},
 			ok = {
-				[1] = "drone1",
+				[1] = "arm-bld-defense-action-t1",
 			},
 			select = {
-				[1] = "drone1",
+				[1] = "arm-bld-shield",
 			},
 		},
 		weapondefs = {

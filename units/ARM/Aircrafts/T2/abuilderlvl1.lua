@@ -90,5 +90,29 @@ return {
 				[6] = "piecetrail6",
 			},
 		},
+		sounds = {
+			build = "conalt-small",
+			canceldestruct = "cancel2",
+			repair = "repair1",
+			underattack = "warning1",
+			working = "reclaim1",
+			cant = {
+				[1] = "cantdo4",
+			},
+			count = {
+				[1] = "count6",
+				[2] = "count5",
+				[3] = "count4",
+				[4] = "count3",
+				[5] = "count2",
+				[6] = "count1",
+			},
+			ok = {
+				[1] = "arm-air-medium-ok",
+			},
+			select = {
+				[1] = "arm-air-medium-sel",
+			},
+		},
 	},
 }

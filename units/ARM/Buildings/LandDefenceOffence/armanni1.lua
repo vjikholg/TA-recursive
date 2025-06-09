@@ -127,7 +127,7 @@ return {
 				beamtime = 0.10,
 				burst = 8, 
 				burstTime = 0.0875, -- burst time total = 0.125s, 8 bursts = 1s
-				beamdecay = 0.10,
+				beamdecay = 0.05,
 				corethickness = 0.39,
 				craterareaofeffect = 0,
 				craterboost = 0,
@@ -146,7 +146,7 @@ return {
 				soundhitdry = "",
 				soundhitwet = "sizzle",
 				soundhitwetvolume = 0.5,
-				soundstart = "",
+				soundstart = "pulselaser2",
 				soundtrigger = true,
 				sweepfire = true,
 				stockpile = true, 

@@ -115,10 +115,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"mavbok1",
+				[1] = "arm-bot-large-ok",
 			},
 			select = {
-				"mavbsel1",
+				[1] = "arm-bot-large-sel",
 			},
 		},
 		weapondefs = {

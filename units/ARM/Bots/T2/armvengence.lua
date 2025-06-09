@@ -7,7 +7,7 @@ return {
 		buildcostmetal = 4711,
 		builder = false,
 		buildpic = "armvengence.dds",
-		buildtime = 70000,
+		buildtime = 35000,
 		canattack = true,
 		canguard = true,
 		canmove = true,

@@ -95,7 +95,7 @@ return {
 				[6] = "count1",
 			},
 			select = {
-				[1] = "geothrm1",
+				[1] = "arm-bld-geo1",
 			},
 		},
 	},

@@ -114,10 +114,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"mavbok1",
+				[1] = "arm-bot-large-ok",
 			},
 			select = {
-				"mavbsel1",
+				[1] = "arm-bot-large-sel",
 			},
 		},
 		weapondefs = {
@@ -143,7 +143,7 @@ return {
 				soundhitdry = "",
 				soundhitwet = "sizzle",
 				soundhitwetvolume = 0.5,
-				soundstart = "lasfirerb",
+				soundstart = "laser_lvl1",
 				soundtrigger = 1,
 				thickness = 3.5,
 				turret = true,

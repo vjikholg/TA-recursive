@@ -117,10 +117,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"kbarmmov",
+				[1] = "arm-bot-large-ok",
 			},
 			select = {
-				"kbarmsel",
+				[1] = "arm-bot-large-sel",
 			},
 		},
 		weapondefs = {
@@ -146,7 +146,7 @@ return {
 				soundhitdry = "xplomed2",
 				soundhitwet = "splshbig",
 				soundhitwetvolume = 0.6,
-				soundstart = "cannon1",
+				soundstart = "ac10_1",
 				stages = 20,
 				turret = true,
 				weapontype = "Cannon",
@@ -174,7 +174,7 @@ return {
 				soundhitdry = "xplomed3",
 				soundhitwet = "splssml",
 				soundhitwetvolume = 0.6,
-				soundstart = "Mavgun2",
+				soundstart = "rac5",
 				sprayangle = 1024,
 				turret = true,
 				weapontype = "Cannon",

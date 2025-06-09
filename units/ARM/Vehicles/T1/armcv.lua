@@ -154,7 +154,7 @@ return {
 			},
 		},
 		sounds = {
-			build = "nanlath1",
+			build = "conalt-small",
 			canceldestruct = "cancel2",
 			repair = "repair1",
 			underattack = "warning1",
@@ -171,10 +171,10 @@ return {
 				[6] = "count1",
 			},
 			ok = {
-				[1] = "varmmove",
+				[1] = "arm-veh-tiny-ok",
 			},
 			select = {
-				[1] = "varmsel",
+				[1] = "arm-veh-tiny-sel",
 			},
 		},
 	},

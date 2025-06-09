@@ -118,7 +118,7 @@ return {
 				[1] = "servmed2",
 			},
 			select = {
-				[1] = "mexon2",
+				[1] = "arm-bld-metal",
 			},
 		},
 	},

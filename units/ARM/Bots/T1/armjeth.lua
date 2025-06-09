@@ -117,10 +117,10 @@ return {
 				[6] = "count1",
 			},
 			ok = {
-				[1] = "kbarmmov",
+				[1] = "arm-bot-tiny-ok",
 			},
 			select = {
-				[1] = "kbarmsel",
+				[1] = "arm-bot-tiny-sel",
 			},
 		},
 		weapondefs = {

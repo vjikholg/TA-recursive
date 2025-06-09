@@ -6,7 +6,7 @@ return {
 		buildcostenergy = 6610,
 		buildcostmetal = 520,
 		buildpic = "armaak.dds",
-		buildtime = 12500,
+		buildtime = 10000,
 		canmove = true,
 		category = "ALL MEDIUM MOBILE SURFACE UNDERWATER",
 		collisionvolumeoffsets = "0 -1 1",
@@ -104,10 +104,10 @@ return {
 				[6] = "count1",
 			},
 			ok = {
-				[1] = "kbarmmov",
+				[1] = "arm-bot-medium-amph-ok",
 			},
 			select = {
-				[1] = "kbarmsel",
+				[1] = "arm-bot-medium-amph-sel",
 			},
 		},
 		weapondefs = {

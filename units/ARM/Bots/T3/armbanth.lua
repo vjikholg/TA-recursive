@@ -2,11 +2,11 @@ return {
 	armbanth = {
 		acceleration = 0.125,
 		brakerate = 0.65,
-		buildcostenergy = 189511,
-		buildcostmetal = 8943,
+		buildcostenergy = 98246,
+		buildcostmetal = 4472,
 		builder = false,
 		buildpic = "armbanth.dds",
-		buildtime = 140000,
+		buildtime = 85000,
 		canattack = true,
 		canguard = true,
 		canmove = true,
@@ -117,10 +117,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"krogok1",
+				[1] = "arm-bot-large-ok",
 			},
 			select = {
-				"krogsel1",
+				[1] = "arm-bot-large-sel",
 			},
 		},
 		weapondefs = {
@@ -219,7 +219,7 @@ return {
 				soundhitdry = "",
 				soundhitwet = "sizzle",
 				soundhitwetvolume = 0.5,
-				soundstart = "annigun1",
+				soundstart = "heatray2",
 				soundtrigger = 1,
 				sweepfire = false,
 				targetmoveerror = 0.2,

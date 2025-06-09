@@ -127,8 +127,8 @@ return {
 				areaofeffect = 32,
 				beamburst=true, -- this should work
 				beamtime = 0.10,
-				burst = 8,
-				burstRate = 0.0875, -- 6 bursts per second
+				burst = 5,
+				burstRate = 0.10, -- 5 bursts per second
 				beamdecay = 0.10,
 				corethickness = 0.2,
 				craterareaofeffect = 0,
@@ -149,7 +149,7 @@ return {
 				soundhitdry = "",
 				soundhitwet = "sizzle",
 				soundhitwetvolume = 0.5,
-				soundstart = "new_sounds/beamLaser/laser_pulse1.wav",
+				soundstart = "pulselaser3",
 				soundtrigger = true,
 				stockpile = true,
 				stockpiletime = 10,

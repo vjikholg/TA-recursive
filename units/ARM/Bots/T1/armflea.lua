@@ -113,10 +113,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"servtny2",
+				"servtny2B",
 			},
 			select = {
-				"servtny2",
+				"servtny2B",
 			},
 		},
 		weapondefs = {

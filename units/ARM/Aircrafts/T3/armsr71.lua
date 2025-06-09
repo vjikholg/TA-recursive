@@ -77,10 +77,10 @@ return {
 				[6] = "count1",
 			},
 			ok = {
-				[1] = "vtolarmv",
+				[1] = "arm-air-large-ok",
 			},
 			select = {
-				[1] = "aaradsel",
+				[1] = "radar-support",
 			},
 		},
 	},

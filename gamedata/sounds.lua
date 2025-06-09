@@ -77,6 +77,9 @@ local soundData = {
 				['pulselaser-3'] = 3.0,
 				['pulselaser-4'] = 3.0,
 				['pulselaser-5'] = 3.0,
+				['laser_level1'] = 1.0,
+				['laser_level2'] = 1.0,
+				['laser_level3'] = 1.0,
 			},
 		},
 		pitchmod = {
@@ -90,6 +93,9 @@ local soundData = {
 				['^heatray3'] = 0.04,
 				['^pulselaser-1'] = 0.3,
 				['^pulselaser-2'] = 0.3,
+				['laser_level1'] = 0.2,
+				['laser_level2'] = 0.2,
+				['laser_level3'] = 0.1,
 			},
 		},
 	},
@@ -247,7 +253,7 @@ local soundData = {
 	},
 
 	-- BUILDING FUNCTION/WEAPON SOUNDS
-	['building'] = {
+	['buildings'] = {
 		gain = 1.2 * 0.3,
 		pitchmod = 0.03,
 		gainmod  = 0.2 * 0.3,
