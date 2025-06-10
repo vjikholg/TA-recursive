@@ -11,13 +11,17 @@ Nixtux and Finky started to work on this game in 2010 on github. Full credits to
 
 To install this fork: 
 1 - Download the spring/recoil Engine (https://github.com/beyond-all-reason/spring/releases).
+
 2 - Clone or download this repository, then paste to Documents/My Games/Spring/games/TA.SDD folder. You can either name the folder TA.sdd (or anything else), or create a Zip file archive named TA.sdd.
 
 You could play alone to test the mode. 
 
 If you want to play DRD with this fork, you must: 
+
 1 - Download the latest version of ([Dynamic Robot Defence](https://github.com/techannihilation/drd))
+
 2 - similarly paste to Documents/My Games/Spring/games/drd.SDD folder
+
 3 - change dependency versioning to match that of whichever version of TAR - you can find this information in modinfo.lua
 
 ## Versioning
