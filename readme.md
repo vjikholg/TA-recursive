@@ -1,26 +1,27 @@
-# DISCLAIMER 
-This version of TA is probably unbalanced for PvP. Me and my friends just wanted to tweak some numbers that we found appropiate for Dynamic Robot Defence.
-
-
-# Tech Annihilation
-
+# Tech Annihilation - Recursion (TAR)
 Uses Recoil Engine (https://github.com/beyond-all-reason/spring), fork of Spring Engine (https://springrts.com/). 
-This Mode looks like to Balanced Annihilation with more units and a morph system.
+
+This is a WIP overhaul of popular RTS Tech Annihilation intended to be used in conjunction with Dynamic Robot Defence. The goal here is to maintain, and update legacy codebase, improve gameplay such as by porting modern UIs, GL4 shaders and similar features from BAR, and to revamp each faction, giving them more unique flavor than generic unit X or Y. Balance is mostly thrown out the window for the sake of grandiose, cool things are reenabled or added, all with modern, revamped audio so actions don't sound like putting your hand through a cheesegrater. 
 
 ## Getting Started
 
-Nixtux and Finky started to work on the mode in 2010 on github.
-The game uses a rapid tool with springlobby. All commits update the game in real time.
+Nixtux and Finky started to work on this game in 2010 on github. Full credits to them. 
 
 ### Prerequisites & Installing
 
-To install the game, 2 options : 
-1 - Download the spring/recoil Engine (https://github.com/beyond-all-reason/spring/releases). And Download this repository and paste on spring/games/TA.SDD folder. You could play alone to test the mode.
-2 - Download a lobby, for example : https://github.com/skynet-gh/skylobby/releases . then you will find a battleroom with Tech-annihilation mention. You can enter in the battleroom and maps and last version will be automatically download. You can also use new lobby.techa-rts.com server. To signup visit https://lobby.techa-rts.com/signup.php .
+To install this fork: 
+1 - Download the spring/recoil Engine (https://github.com/beyond-all-reason/spring/releases).
+2 - Clone or download this repository, then paste to Documents/My Games/Spring/games/TA.SDD folder. You can either name the folder TA.sdd (or anything else), or create a Zip file archive named TA.sdd.
+
+You could play alone to test the mode. 
+
+If you want to play DRD with this fork, you must: 
+1 - Download the latest version of ([Dynamic Robot Defence](https://github.com/techannihilation/drd))
+2 - similarly paste to Documents/My Games/Spring/games/drd.SDD folder
+3 - change dependency versioning to match that of whichever version of TAR - you can find this information in modinfo.lua
 
 ## Versioning
-
-Actually, the Tech annihilation mode, have no version. All commits done are automatically uploaded on Rapid (http://tard.repo.springrts.com/builds/).
+Release versions use the following format for version: test-commit#-commitID, or release-commit#-commitID.  
 
 ## Authors
 
