@@ -62,7 +62,7 @@ return {
 			[5] = "corses",
 			[6] = "corsms",
 			[7] = "core_ulab",
-			--[8] = "",
+			[8] = "corboucher", -- no native T4 defence
 			[9] = "cshipyardlvl4",
 			[10] = "cornanotc3",
 			[11] = "coredrag",

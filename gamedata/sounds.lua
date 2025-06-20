@@ -54,7 +54,7 @@ local soundData = {
 		--priority = 1,
 		rolloff = 0,
 	},
-
+	-- UNDERWATER
 	['uw'] = {
 		gain = 1.2 * 0.3,
 		pitchmod = 0.17,
@@ -71,15 +71,17 @@ local soundData = {
 			custom = {
 				['^beamershot2$'] = 0.5 * 0.3,
 				['^lasfirerc$'] = 0.06 * 0.3,
-				['^heatray'] = 0 * 0.3,
+				['^heatray'] = 1.0,
 				['^heatray3'] = 0.04 * 0.3,
-				['pulselaser-2'] = 3.0,
-				['pulselaser-3'] = 3.0,
-				['pulselaser-4'] = 3.0,
-				['pulselaser-5'] = 3.0,
-				['laser_level1'] = 1.5,
-				['laser_level2'] = 1.5,
-				['laser_level3'] = 1.5,
+				['pulselaser-2'] = 0.3,
+				['pulselaser-3'] = 0.3,
+				['pulselaser-4'] = 0.3,
+				['pulselaser-5'] = 0.3,
+				['pulselaser-6'] = 0.3,
+				['laser_lvl1'] = 0.8,
+				['laser_lvl2'] = 0.8,
+				['laser_lvl3'] = 0.8,
+				['Lasrhvy2'] = 0.2,
 			},
 		},
 		pitchmod = {
@@ -93,6 +95,9 @@ local soundData = {
 				['^heatray3'] = 0.04,
 				['^pulselaser-1'] = 0.3,
 				['^pulselaser-2'] = 0.3,
+				['pulselaser-4'] = 0.1,
+				['pulselaser-5'] = 0.1,
+				['pulselaser-6'] = 0.1,
 				['laser_level1'] = 0.3,
 				['laser_level2'] = 0.3,
 				['laser_level3'] = 0.2,
@@ -118,9 +123,19 @@ local soundData = {
 				['lbx1'] = 0.2
 			},
 		},
-		pitchmod = 0.33,
+		pitchmod = {
+			default = 0.33,
+			custom = {
+				["gauss_lvl"] = 0.05,
+			} 
+		},
 		gainmod  = 0.1 * 0.3,
-		dopplerscale = 2.0,
+		dopplerscale = {
+			default = 2.0, 
+			custom = {
+				['^gauss'] = 2.5
+			},
+		},
 		maxconcurrent = 64,
 		rolloff = 0.2,
 	},
@@ -130,7 +145,7 @@ local soundData = {
 		pitchmod = 0.33,
 		gainmod  = 0.1 * 0.3,
 		dopplerscale = 1.0,
-		maxconcurrent = 8,
+		maxconcurrent = 128,
 		rolloff = 0.2,
 	},
 
@@ -154,7 +169,12 @@ local soundData = {
 
 	['weapons-LightningCannon'] = {
 		gain = 1.0 * 0.3,
-		pitchmod = 0.05,
+		pitchmod = {
+			default = 0.05, 
+			custom = {
+				hppc3 = 0.10,
+			},
+		},
 		gainmod  = 0.1 * 0.3,
 		dopplerscale = 1.0,
 		maxconcurrent = 8,
@@ -206,7 +226,7 @@ local soundData = {
 
 	-- REPLY SOUNDS
 	['replies'] = {
-		gain = 0.1,
+		gain = 0.05,
 		pitchmod = 0.05,
 		gainmod  = 0.2 * 0.3,
 		dopplerscale = 0,
@@ -260,8 +280,8 @@ local soundData = {
 
 	-- BUILDING FUNCTION/WEAPON SOUNDS
 	['buildings'] = {
-		gain = 1.2 * 0.3,
-		pitchmod = 0.03,
+		gain = 0.2,
+		pitchmod = 0.08,
 		gainmod  = 0.2 * 0.3,
 		dopplerscale = 0,
 		maxconcurrent = 2,

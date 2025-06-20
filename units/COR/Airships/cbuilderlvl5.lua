@@ -60,7 +60,7 @@ return {
 			[4] = "core_ulab",
 			[5] = "cshipyardlvl4",
 			[6] = "cornanotc4",
-			--[7] = "corurad",
+			[7] = "corurad",
 			[8] = "corujam",
 			[9] = "corboucher",
 			[10] = "corgate3",
@@ -68,7 +68,7 @@ return {
 			[12] = "corfsilo",
 			[13] = "corbuzz1",
 			[14] = "corflu",
-			--[15] = "corlilith",
+			[15] = "corlilith", -- reenabled
 		},
 		customparams = {
 			buildpic = "cbuilderlvl5.dds",

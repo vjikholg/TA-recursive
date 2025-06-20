@@ -127,7 +127,7 @@ return {
 				avoidfeature = false,
 				burnblow = true,
 				burst = 8,
-				burstrate = 0.5, -- from 0.1, shoots 5 missiles at a time for total 40, mirror battletech LRM20 
+				burstrate = 1, -- from 0.1, shoots 5 missiles at a time for total 40, mirror battletech LRM40
 				projectiles = 5, -- new   
 				cegtag = "Core_Def_AA_Rocket",
 				craterareaofeffect = 375,
@@ -150,7 +150,8 @@ return {
 				soundhitdry = "mlrsboom",
 				soundhitwet = "splslrg",
 				soundhitwetvolume = 0.6,
-				soundstart = "rapidrocket3",
+				soundstart = "srm1",
+				soundTrigger = false,
 				sprayangle = 1500,
 				startvelocity = 175,
 				targetable = 16,

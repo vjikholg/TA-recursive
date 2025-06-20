@@ -132,8 +132,8 @@ return {
 				interceptSolo = true, -- from false -> true, now only one MDS can intercept a missile at a time
 				name = "Missile/Rocket Interceptor",
 				noselfdamage = true,
-				range = 1000,
-				reloadtime = 1.5,
+				range = 1500,
+				reloadtime = 0.2,
 				rgbcolor = "0.000 0.012 1.000",
 				soundhitdry = "lasrhvy2",
 				soundhitwet = "sizzle",

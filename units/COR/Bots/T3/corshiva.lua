@@ -122,7 +122,7 @@ return {
 		},
 		weapondefs = {
 			corshiva_gun = {
-				areaofeffect = 292,
+				areaofeffect = 320,
 				avoidfeature = false,
 				cegtag = "Trail_cannon_med",
 				craterareaofeffect = 292,
@@ -144,7 +144,7 @@ return {
 				soundhitdry = "xplomed4",
 				soundhitwet = "splslrg",
 				soundhitwetvolume = 0.6,
-				soundstart = "cannhvy2",
+				soundstart = "AC_midcaliber16",
 				stages = 20,
 				turret = true,
 				weapontype = "Cannon",

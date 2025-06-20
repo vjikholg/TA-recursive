@@ -1,8 +1,8 @@
 return {
 	corboucher = {
 		buildangle = 8192,
-		buildcostenergy = 910943,
-		buildcostmetal = 72375,
+		buildcostenergy = 693457, -- from 910943
+		buildcostmetal = 50892, -- from 
 		builder = false,
 		buildpic = "corboucher.dds",
 		buildtime = 750000,
@@ -110,7 +110,7 @@ return {
 				stockpileTime = 5,
 				areaofeffect = 360,
 				avoidfeature = false,
-				burst = 2, 
+				burst = 1, 
 				burstRate = 0.2,
 				projectiles = 20,
 				cegtag = "Trail_dmc_core",
@@ -130,14 +130,14 @@ return {
 				nogap = 1,
 				noselfdamage = true,
 				range = 2000,
-				reloadtime = 1,
+				reloadtime = 3,
 				rgbcolor = "1 0.15 0.15",
 				size = 2.5,
 				sizedecay = -0.25,
 				soundhitdry = "xplolrg1",
 				soundhitwet = "splslrg",
 				soundhitwetvolume = 0.6,
-				soundstart = "lbx1",
+				soundstart = "AC20_2019_5",
 				soundTrigger = true, 
 				stages = 20,
 				sprayangle = 1800,
