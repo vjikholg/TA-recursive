@@ -22,7 +22,7 @@ return {
 		description = "Tech Level 2",
 		energymake = 30,
 		energystorage = 30,
-		explodeas = "BIG_UNITEX",
+		explodeas = "BIG_UNITEX", 
 		footprintx = 2,
 		footprintz = 2,
 		idleautoheal = 5,
