@@ -85,10 +85,10 @@ return {
 				[6] = "count1",
 			},
 			ok = {
-				[1] = "servsml6",
+				[1] = "cor-bot-small-ok",
 			},
 			select = {
-				[1] = "servsml6",
+				[1] = "cor-bot-small-sel",
 			},
 		},
 	},

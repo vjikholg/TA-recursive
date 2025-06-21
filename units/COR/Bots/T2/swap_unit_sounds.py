@@ -19,9 +19,9 @@ NEW = {
     "build"   : "conalt-small",
     "repair"  : "conalt-small",
     "working" : "conalt-small",
-    "cant"    : "{ cantdo4 }",
-    "ok"      : "{ cor-bot-small-ok }",
-    "select"  : "{ cor-bot-small-sel }",
+    "cant"    : "cantdo4",
+    "ok"      : "cor-bot-small-ok",
+    "select"  : "cor-bot-small-sel",
 }
 
 # ─── 2.  regex helpers -------------------------------------------------------
