@@ -116,10 +116,10 @@ return {
 				[6] = "count1",
 			},
 			ok = {
-				[1] = "cor-bot-small-ok",
+				[1] = "cor-bot-medium-ok",
 			},
 			select = {
-				[1] = "cor-bot-small-sel",
+				[1] = "cor-bot-medium-sel",
 			},
 		},
 	},
