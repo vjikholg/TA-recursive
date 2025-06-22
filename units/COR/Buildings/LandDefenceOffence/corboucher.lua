@@ -98,10 +98,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"twrturn3",
+				"arm-bld-lolcannon",
 			},
 			select = {
-				"twrturn3",
+				"arm-bld-lolcannon",
 			},
 		},
 		weapondefs = {
@@ -138,15 +138,15 @@ return {
 				soundhitwet = "splslrg",
 				soundhitwetvolume = 0.6,
 				soundstart = "AC20_2019_5",
-				soundTrigger = true, 
+				-- soundTrigger = true, 
 				stages = 20,
-				sprayangle = 1800,
+				sprayangle = 900,
 				turret = true,
 				weapontype = "Cannon",
-				weaponvelocity = 2400,
+				weaponvelocity = 4800,
 				damage = {
 					commanders = 200,
-					default = 5000, -- total ~100000 damage if all hits -> very good at large targets
+					default = 2500, -- total ~5000 damage if all hits -> very good at large targets
 					subs = 5,
 				},
 				tracks = false,

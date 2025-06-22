@@ -20,8 +20,8 @@ NEW = {
     "repair"  : "conalt-small",
     "working" : "conalt-small",
     "cant"    : "cantdo4",
-    "ok"      : "cor-bot-medium-ok",
-    "select"  : "cor-bot-medium-sel",
+    "ok"      : "cor-hov-large-ok",
+    "select"  : "cor-hov-large-sel",
 }
 
 # ─── 2.  regex helpers -------------------------------------------------------

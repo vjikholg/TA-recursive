@@ -114,10 +114,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"hovmdok2",
+				"cor-hov-small-ok",
 			},
 			select = {
-				"hovmdsl2",
+				"cor-hov-small-sel",
 			},
 		},
 		weapondefs = {
