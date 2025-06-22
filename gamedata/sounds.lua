@@ -46,7 +46,12 @@ local Sounds = {
 local soundData = {
 	-- UI SOUNDS
 	['ui'] = {
-		gain = 0.8,
+		gain = {
+			default = 0.8, 
+			custom = {
+				["warning2"] = 0.3
+			},
+		},
 		pitchmod = 0,
 		gainmod  = 0,
 		dopplerscale = 0,
@@ -253,7 +258,7 @@ local soundData = {
 	['movement'] = {
 		gain = 1.2 * 0.3,
 		pitchmod = { 
-			default = 0.062, 
+			default = 0.1, 
 		custom = {
 			["'varmmove"] = 0, 
 			}

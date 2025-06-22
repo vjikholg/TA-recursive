@@ -129,7 +129,7 @@ return {
 				name = "Cluster Cannon",
 				nogap = 1,
 				noselfdamage = true,
-				range = 2000,
+				range = 2400,
 				reloadtime = 3,
 				rgbcolor = "1 0.15 0.15",
 				size = 2.5,

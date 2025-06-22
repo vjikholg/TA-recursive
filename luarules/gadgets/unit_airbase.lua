@@ -19,6 +19,13 @@ CMD[CMD_LAND_AT_AIRBASE] = "LAND_AT_AIRBASE"
 CMD.LAND_AT_SPECIFIC_AIRBASE = CMD_LAND_AT_SPECIFIC_AIRBASE
 CMD[CMD_LAND_AT_SPECIFIC_AIRBASE] = "LAND_AT_SPECIFIC_AIRBASE"
 
+local lathFile
+if not lathFile then
+    local soundDefs = VFS.Include("gamedata/sounds.lua") -- loads sounds.lua single time
+    local SoundItems = soundDefs and soundDefs.SoundItems --
+    lathFile = (SoundItems and SoundItems.conalt-small and SoundItems.conalt-small.file) or "sounds/function/conalt-small"
+end 
+
 local airbaseDefIDs = {
     --Arm
     [UnitDefNames["armasp"].id] = 100 ^ 2, -- distance in elmos for snap onto pad
@@ -493,7 +500,7 @@ if (gadgetHandler:IsSyncedCode()) then
                 tractorPlanes[unitID] = nil
                 landedPlanes[unitID] = airbaseID
                 AttachToPad(unitID, airbaseID, padPieceNum)
-                Spring.PlaySoundFile("sounds/nanlath2.wav", 1.0, ux, uy, uz, 0, 0, 0, "battle")
+                Spring.PlaySoundFile(lathFile, 1.0, ux, uy, uz, 0, 0, 0, "battle")
                 Spring.MoveCtrl.Disable(unitID)
                 Spring.MoveCtrl.SetTag(unitID,0)
                 Spring.SetUnitLoadingTransport(unitID, nil)

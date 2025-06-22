@@ -145,7 +145,7 @@ return {
 				noselfdamage = true,
 				proximitypriority = -1,
 				range = 2400,
-				reloadtime = 60, -- from 40, this unit is busted in DrD
+				reloadtime = 40, -- from 40, this unit is busted in DrD
 				smoketrail = true,
 				soundhitdry = "mlrsboom",
 				soundhitwet = "splslrg",
@@ -153,7 +153,7 @@ return {
 				soundstart = "srm1",
 				soundTrigger = false,
 				sprayangle = 1500,
-				startvelocity = 175,
+				startvelocity = 250,
 				targetable = 16,
 				texture1 = "null",
 				texture2 = "coresmoketrail",
@@ -166,7 +166,7 @@ return {
 				weapontimer = 4,
 				weapontype = "MissileLauncher",
 				weaponvelocity = 900,
-				wobble = 1800,
+				wobble = 900, -- decreased wobble from 1800
 				damage = {
 					commanders = 1500,
 					default = 3000,
