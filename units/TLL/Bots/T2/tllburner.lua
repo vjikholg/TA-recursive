@@ -144,6 +144,7 @@ return {
 				sprayangle = 675,
 				tolerance = 2500,
 				turret = true,
+				texture = "spray",
 				weapontimer = 1.5,
 				weapontype = "Flame",
 				weaponvelocity = 265,

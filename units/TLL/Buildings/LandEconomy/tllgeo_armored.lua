@@ -111,7 +111,7 @@ return {
 				"count1",
 			},
 			select = {
-				"geothrm2",
+				"arm-bld-geo-t2",
 			},
 		},
 		weapondefs = {

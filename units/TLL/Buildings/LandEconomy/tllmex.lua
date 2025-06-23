@@ -86,7 +86,7 @@ return {
 			activate = "mexon2",
 			canceldestruct = "cancel2",
 			deactivate = "mexoff2",
-			underattack = "tllwarning",
+			underattack = "warning1",
 			working = "mexrun2",
 			count = {
 				[1] = "tllcount",

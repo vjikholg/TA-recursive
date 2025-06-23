@@ -90,7 +90,7 @@ return {
 				[6] = "count1",
 			},
 			select = {
-				[1] = "fusion2",
+				[1] = "arm-bld-nrg-fusion",
 			},
 		},
 	},

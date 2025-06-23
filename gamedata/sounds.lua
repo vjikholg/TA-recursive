@@ -168,21 +168,27 @@ local soundData = {
 		pitchmod = 0.05,
 		gainmod  = 0.1 * 0.3,
 		dopplerscale = 1.0,
-		maxconcurrent = 8,
+		maxconcurrent = 64,
 		rolloff = 0.2,
 	},
 
 	['weapons-LightningCannon'] = {
-		gain = 1.0 * 0.3,
+		gain = {
+			default = 0.8 * 0.3,
+			custom = {
+				lppc1 = 0.1,
+			},
+		},
 		pitchmod = {
 			default = 0.05, 
 			custom = {
+				lppc1 = 0.10,
 				hppc3 = 0.10,
 			},
 		},
 		gainmod  = 0.1 * 0.3,
 		dopplerscale = 1.0,
-		maxconcurrent = 8,
+		maxconcurrent = 64,
 		rolloff = 0.2,
 	},
 

@@ -197,7 +197,7 @@ return {
 				rgbcolor = "0.6 0.6 0.9",
 				soundhitwet = "sizzle",
 				soundhitwetvolume = 0.5,
-				soundstart = "tllspark",
+				soundstart = "lppc1",
 				texture1 = "spray",
 				thickness = 12,
 				turret = true,

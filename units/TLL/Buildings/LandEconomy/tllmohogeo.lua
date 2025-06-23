@@ -89,7 +89,7 @@ return {
 			activate = "tllgeo",
 			canceldestruct = "cancel2",
 			deactivate = "tllgeooff",
-			underattack = "tllwarning",
+			underattack = "warning1",
 			count = {
 				[1] = "tllcount",
 				[2] = "tllcount",

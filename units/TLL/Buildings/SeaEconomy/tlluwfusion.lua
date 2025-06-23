@@ -78,7 +78,7 @@ return {
 		},
 		sounds = {
 			canceldestruct = "cancel2",
-			underattack = "tllwarning",
+			underattack = "warning1",
 			count = {
 				[1] = "tllcount",
 				[2] = "tllcount",

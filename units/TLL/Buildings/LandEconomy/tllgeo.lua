@@ -81,10 +81,10 @@ return {
 			},
 		},
 		sounds = {
-			activate = "tllgeo",
+			activate = "arm-bld-geo-t2",
 			canceldestruct = "cancel2",
-			deactivate = "tllgeooff",
-			underattack = "tllwarning",
+			deactivate = "arm-bld-geo-t2",
+			underattack = "warning1",
 			count = {
 				[1] = "tllcount",
 				[2] = "tllcount",
@@ -94,7 +94,7 @@ return {
 				[6] = "tllcount",
 			},
 			select = {
-				[1] = "tllgeosel",
+				[1] = "arm-bld-geo-t2",
 			},
 		},
 	},

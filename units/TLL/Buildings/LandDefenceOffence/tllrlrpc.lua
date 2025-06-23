@@ -135,7 +135,7 @@ return {
 				beamtime = 0.2,
 				largeBeamLaser = true,
 				tileLength = 100, 
-				scrollSpeed = 10.0,
+				scrollSpeed = 2,
 				beamdecay = 0.05,
 				craterareaofeffect = 0,
 				craterboost = 0,

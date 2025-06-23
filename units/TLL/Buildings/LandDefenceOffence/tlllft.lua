@@ -97,10 +97,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"servmed2",
+				"arm-bld-defense-action-t1",
 			},
 			select = {
-				"servmed2",
+				"arm-bld-defense-action-t1",
 			},
 		},
 		weapondefs = {
@@ -122,8 +122,7 @@ return {
 				predictboost = 0,
 				range = 480,
 				reloadtime = 1,
-				rgbcolor = "1 0.95 0.9",
-				rgbcolor2 = "0.9 0.85 0.8",
+				rgbcolor = "0.9 0.95 0.3",
 				sizegrowth = 0.7,
 				soundhitwet = "sizzle",
 				soundhitwetvolume = 0.5,
