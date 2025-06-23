@@ -141,11 +141,11 @@ return {
 				soundhitdry = "soft_crunch",
 				soundhitwet = "splsmed",
 				soundhitwetvolume = 0.6,
-				soundstart = "tllgauss",
+				soundstart = "gauss4",
 				stages = 32,
 				turret = true,
 				weapontype = "Cannon",
-				weaponvelocity = 1450,
+				weaponvelocity = 3000,
 				damage = {
 					commanders = 1600,
 					default = 3200,

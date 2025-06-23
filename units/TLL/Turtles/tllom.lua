@@ -138,7 +138,7 @@ return {
 				soundhitdry = "soft_crunch",
 				soundhitwet = "splsmed",
 				soundhitwetvolume = 0.6,
-				soundstart = "tllgauss",
+				soundstart = "gauss1",
 				stages = 32,
 				turret = true,
 				weapontype = "Cannon",
