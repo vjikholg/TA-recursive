@@ -128,10 +128,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"krogok1",
+				"leg-bot-medium-ok",
 			},
 			select = {
-				"krogsel1",
+				"leg-bot-medium-sel",
 			},
 		},
 		weapondefs = {

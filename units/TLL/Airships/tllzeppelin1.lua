@@ -84,7 +84,7 @@ return {
 			canceldestruct = "cancel2",
 			underattack = "warning1",
 			arrived = {
-				"bigstop",
+				"tllvtolstop3",
 			},
 			cant = {
 				"cantdo4",
@@ -98,10 +98,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"biggo",
+				"arm-air-large-ok",
 			},
 			select = {
-				"bigsel",
+				"arm-air-large-sel",
 			},
 		},
 		weapondefs = {

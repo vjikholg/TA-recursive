@@ -104,10 +104,10 @@ return {
 				"count1",
 			},
 			ok = {
-				"sharmmov",
+				"arm-shp-huge-ok",
 			},
 			select = {
-				"sharmsel",
+				"arm-shp-huge-sel",
 			},
 		},
 		weapondefs = {
