@@ -13,7 +13,7 @@ return {
         pos                = [[-80 r160, 1 r20, -80 r160]],
       },
     },
-    flash = {
+    groundflash = {
       air                = true,
       class              = [[CSimpleGroundFlash]],
       count              = 1,

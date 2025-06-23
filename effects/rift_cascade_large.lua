@@ -2,18 +2,18 @@ return {
   ["rift_cascade_large"] = {
     usedefaultexplosions = false,
     burst = {
-      air = true,
-      class = [[CExpGenSpawner]],
-      count = 12,
-      ground = true,
-      water = true,
+      air                   = true,
+      class                 = [[CExpGenSpawner]],
+      count                 = 12,
+      ground                = true,
+      water                 = true,
       properties = {
-        delay = [[0 i4]],
-        explosiongenerator = [[custom:purple_explosion]],
-        pos = [[-120 r240, 1 r30, -120 r240]],
+        delay               = [[0 i4]],
+        explosiongenerator  = [[custom:purple_explosion]],
+        pos                 = [[-120 r240, 1 r30, -120 r240]],
       },
     },
-    flash = {
+    groundflash = {
       air = true,
       class = [[CSimpleGroundFlash]],
       count = 1,

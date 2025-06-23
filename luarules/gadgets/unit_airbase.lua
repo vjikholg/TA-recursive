@@ -23,7 +23,7 @@ local lathFile
 if not lathFile then
     local soundDefs = VFS.Include("gamedata/sounds.lua") -- loads sounds.lua single time
     local SoundItems = soundDefs and soundDefs.SoundItems --
-    lathFile = (SoundItems and SoundItems.conalt-small and SoundItems.conalt-small.file) or "sounds/function/conalt-small"
+    lathFile = (SoundItems and SoundItems.nanlath1 and SoundItems.nanlath1.file) or "sounds/function/conalt-small"
 end 
 
 local airbaseDefIDs = {
