@@ -28,12 +28,6 @@ if (gadgetHandler:IsSyncedCode()) then
         [ WeaponDefNames["tllrlrpc_tll_barret"].id ] = {ceg = "tll_spray_exp", forkdamage = 0.5, maxunits = 5, radius = 500}
     }
 
-    local sparkUsers = { 
-
-    }
-
-
-
     local immuneToSplash = {
         [UnitDefNames["armzeus"].id] = true,
         [UnitDefNames["armclaw"].id] = true,
@@ -48,9 +42,21 @@ if (gadgetHandler:IsSyncedCode()) then
     local SpAddUnitDamage = Spring.AddUnitDamage
     
     function gadget:Initialize() 
-        for wID in pairs(sparkWeapons) do
+        for weaponID, _ in pairs(sparkWeapons) do
         Spring.Echo("initializing spark weapons:", wID)
-        Script.SetWatchWeapon(wID, true)
+        Script.SetWatchWeapon(weaponID, true)
+        end
+      Script.SetWatchWeapon( WeaponDefNames["armcom_armcomlaser"].id, true) -- both testing rn
+      Script.SetWatchWeapon( WeaponDefNames["armpincer_arm_pincer_gauss"].id, true)
+    end
+    
+    -- testing WatchWeapon actually works. 
+    function gadget:GameFrame(f)
+        if f % 30 == 0 then  -- every second
+          Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armzeus_arm_lightning"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
+          Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armpincer_arm_pincer_gauss"].id, Script.GetWatchWeapon(WeaponDefNames["armpincer_arm_pincer_gauss"].id))  
+          Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["tllrlrpc_tll_barret"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
+          Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armcom_armcomlaser"].id, Script.GetWatchWeapon(WeaponDefNames["armcom_armcomlaser"].id))  
         end
     end
     ----------------------------------------------------------------
@@ -58,7 +64,7 @@ if (gadgetHandler:IsSyncedCode()) then
     ----------------------------------------------------------------
     function gadget:UnitDamaged(unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam)
       Spring.Echo("LightningFork call-in received:", unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam) -- not passing gadget weaponDefID for some reason. 
-      Spring.Echo("attacker: ".. UnitDefs[attackerDefID].name)
+      Spring.Echo("attacker: ".. UnitDefs[attackerDefID].name) -- NOTE: weaponDefID not being passed to UnitDamaged for some reason
       if sparkWeapons[weaponDefID] then
                 local x,y,z = SpGetUnitPosition(unitID)
                 local angle = rad(mRandom(1,360))

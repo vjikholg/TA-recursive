@@ -148,7 +148,7 @@ return {
 				soundhitdry = "xplomed3",
 				soundhitwet = "sizzle",
 				soundhitwetvolume = 0.5,
-				soundstart = "techa_sounds/zeus_hit_1",
+				soundstart = "lppc1",
 				soundtrigger = true,
 				targetmoveerror = 0.3,
 				texture1 = "lightning",

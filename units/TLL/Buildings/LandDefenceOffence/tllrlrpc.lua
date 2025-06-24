@@ -129,7 +129,7 @@ return {
 		},
 		weapondefs = {
 			tll_barret = {
-				accuracy = 1400,
+				accuracy = 0,
 				areaofeffect = 36,
 				beamttl = 10,
 				beamtime = 0.2,
@@ -153,10 +153,10 @@ return {
 				reloadtime = 1,
 				rgbcolor = "0.9 0.9 0.2",
 				soundstart = "hppc2",
-				texture1 = "spray",
+				texture1 = "strike",
 				thickness = 18,
 				turret = true,
-				weapontype = "BeamLaser",
+				weapontype = "LightningCannon",
 				customparams = {
 					light_mult = 1.4,
 					light_radius_mult = 0.9,
