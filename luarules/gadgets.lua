@@ -1536,7 +1536,7 @@ function gadgetHandler:UnitPreDamaged(unitID, unitDefID, unitTeam,
 end
 
 function gadgetHandler:UnitDamaged(unitID, unitDefID, unitTeam,
-                                   damage, paralyzer, weaponID, projectileID,
+                                   damage, paralyzer, weaponDefID, projectileID,
                                    attackerID, attackerDefID, attackerTeam)
   for _,g in r_ipairs(self.UnitDamagedList) do
     g:UnitDamaged(unitID, unitDefID, unitTeam,
