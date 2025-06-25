@@ -45,7 +45,9 @@ if (gadgetHandler:IsSyncedCode()) then
     local SpGetUnitDefID = Spring.GetUnitDefID
     local SpSpawnCEG = Spring.SpawnCEG
     local SpAddUnitDamage = Spring.AddUnitDamage
-    
+    local SpGetUnitTeam = Spring.GetUnitTeam
+    local SpSpawnProjectile = Spring.SpawnProjectile
+
     function gadget:Initialize() 
         Spring.Echo("initializing spark weapons:")
 
@@ -63,44 +65,53 @@ if (gadgetHandler:IsSyncedCode()) then
         Spring.Echo("LightningFork call-in received:", unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam) -- not passing gadget weaponDefID for some reason. 
         -- Spring.Echo("attacker: ".. UnitDefs[attackerDefID].name) 
         -- Spring.Echo("defender:" .. UnitDefs[UnitDefID].name)
-      
+        if unitTeam == attackerTeam then return end -- if friendly fire -> do not call fork
+
         if sparkWeapons[weaponDefID] then
             local x,y,z = SpGetUnitPosition(unitID)
-            local angle = rad(mRandom(1,360))
-            local nearUnits = SpGetUnitsInSphere(x,y,z,sparkWeapons[weaponDefID].radius)
+            local info = sparkWeapons[weaponDefID]
+            local nearUnits = SpGetUnitsInSphere(x,y,z,info.radius)
+
+            -- local angle = rad(mRandom(1,360))
             local count = 0
             for _,nearUnit in ipairs(nearUnits) do
-                if (count >= sparkWeapons[weaponDefID].maxunits) then
-                    return
-                end
+                if (nearUnit ~= unitID) then 
+                    local nearUnitTeam = SpGetUnitTeam(nearUnit)
+                    local nearUnitDefID = SpGetUnitDefID(nearUnit)
 
-                local nearUnitDefID = SpGetUnitDefID(nearUnit)
-                
-                -- Spring.getUnitTeam(nearUnit)
-                -- nearUnit ~= unitID -> attacker != defender
-                -- unitTeam ~= attackerTeam -> attacker team != defender team
-                if (nearUnit ~= unitID) and (unitTeam ~= attackerTeam) and (not immuneToSplash[nearUnitDefID]) then -- added friendly fire check. 
-                    local nx,ny,nz = SpGetUnitPosition(nearUnit)
-                    SpSpawnCEG(sparkWeapons[weaponDefID].ceg,nx,ny,nz,0,0,0)
+                    if (nearUnitTeam ~= attackerTeam) and (not immuneToSplash[nearUnitDefID]) then -- added friendly fire check. 
+                        local nx,ny,nz = SpGetUnitPosition(nearUnit)
+                        SpSpawnProjectile(weaponDefID, {
+                            pos = {x,y,z}, 
+                            endpos = {nx,ny,nz},
+                            owner = attackerID, 
+                            team = attackerTeam, 
+                            ttl = 10, 
+                        })
     	                SendToUnsynced("splashsound", nx, ny, nz)
-                    SpAddUnitDamage(nearUnit, damage*sparkWeapons[weaponDefID].forkdamage, 0, attackerID, 0) -- this should fix it, weaponDefID -> 0
-                    count = count + 1                                                                        -- remark that AddUnitDamage can end up calling UnitDamaged recursively  
-                end                                                                                          -- zzz ai gave me crashcode WTF. 
+                        SpAddUnitDamage(nearUnit, damage*info.forkdamage, 0, attackerID, 0)  -- this should fix it, weaponDefID -> 0
+                        SpSpawnCEG(info.ceg, nx, ny, nz,0,0,0)                               -- remark that AddUnitDamage can end up calling UnitDamaged recursively  
+                        count = count + 1                                                    
+                        if (count >= info.maxunits) then break end                           
+                    end                                                                      
+                end
             end
         end
     end
-    
-else
+
 ----------------------------------------------------------------
 -- Unsynced
 ----------------------------------------------------------------
-function gadget:Initialize()
-    gadgetHandler:AddSyncAction("splashsound", SplashSound)
-end
+else 
+    function gadget:Initialize()
+        gadgetHandler:AddSyncAction("splashsound", SplashSound)
+    end
 
-function SplashSound(_, x, y, z)
-    Spring.PlaySoundFile("sounds/explosions/lasrfir2.wav", 2, x,y,z)
-end
+    function SplashSound(_, x, y, z)
+        Spring.PlaySoundFile("sounds/explosions/lasrfir2.wav", 0.5, x,y,z)
+    end
+------------------
+-- END UNSYNCED --
+------------------
 
-end
-
+end 
