@@ -22,10 +22,14 @@ if (gadgetHandler:IsSyncedCode()) then
 ----------------------------------------------------------------
 -- Config
 ----------------------------------------------------------------
-
     local sparkWeapons = {
         [ WeaponDefNames["armzeus_arm_lightning"].id] = {ceg = "ZEUS_FLASH_SUB", forkdamage = 0.5, maxunits = 2, radius = 60},
         [ WeaponDefNames["tllrlrpc_tll_barret"].id ] = {ceg = "tll_spray_exp", forkdamage = 0.5, maxunits = 5, radius = 500}
+    }
+
+    local sparkWeaponIDs = {
+        WeaponDefNames["armzeus_arm_lightning"].id, 
+        WeaponDefNames["tllrlrpc_tll_barret"].id 
     }
 
     local immuneToSplash = {
@@ -42,23 +46,36 @@ if (gadgetHandler:IsSyncedCode()) then
     local SpAddUnitDamage = Spring.AddUnitDamage
     
     function gadget:Initialize() 
-        for weaponID, _ in pairs(sparkWeapons) do
-        Spring.Echo("initializing spark weapons:", wID)
-        Script.SetWatchWeapon(weaponID, true)
+        Spring.Echo("initializing spark weapons:")
+
+        for _, wID in ipairs(sparkWeaponIDs) do
+          Spring.Echo("Weapon:", wID)
+          Script.SetWatchWeapon(wID, true)
         end
-      Script.SetWatchWeapon( WeaponDefNames["armcom_armcomlaser"].id, true) -- both testing rn
-      Script.SetWatchWeapon( WeaponDefNames["armpincer_arm_pincer_gauss"].id, true)
+      
+        -- testing 
+        Script.SetWatchWeapon( WeaponDefNames["armcom_armcomlaser"].id, true)
+        Script.SetWatchWeapon( WeaponDefNames["armpincer_arm_pincer_gauss"].id, true)
+        Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armzeus_arm_lightning"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
+        Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armpincer_arm_pincer_gauss"].id, Script.GetWatchWeapon(WeaponDefNames["armpincer_arm_pincer_gauss"].id))  
+        Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["tllrlrpc_tll_barret"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
+        Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armcom_armcomlaser"].id, Script.GetWatchWeapon(WeaponDefNames["armcom_armcomlaser"].id))  
+
+        for i=1,#WeaponDefs do
+          local wd = WeaponDefs[i]
+          Spring.Echo("Dumping wDefs: ",i, wd.name, Script.GetWatchWeapon(i))  
+        end
     end
     
     -- testing WatchWeapon actually works. 
-    function gadget:GameFrame(f)
-        if f % 30 == 0 then  -- every second
-          Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armzeus_arm_lightning"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
-          Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armpincer_arm_pincer_gauss"].id, Script.GetWatchWeapon(WeaponDefNames["armpincer_arm_pincer_gauss"].id))  
-          Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["tllrlrpc_tll_barret"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
-          Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armcom_armcomlaser"].id, Script.GetWatchWeapon(WeaponDefNames["armcom_armcomlaser"].id))  
-        end
-    end
+    -- function gadget:GameFrame(f)
+    --     if f % 240 == 0 then  -- every second
+    --       Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armzeus_arm_lightning"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
+    --       Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armpincer_arm_pincer_gauss"].id, Script.GetWatchWeapon(WeaponDefNames["armpincer_arm_pincer_gauss"].id))  
+    --       Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["tllrlrpc_tll_barret"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
+    --       Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armcom_armcomlaser"].id, Script.GetWatchWeapon(WeaponDefNames["armcom_armcomlaser"].id))  
+    --     end
+    -- end
     ----------------------------------------------------------------
     -- Callins
     ----------------------------------------------------------------
