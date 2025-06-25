@@ -61,10 +61,10 @@ if (gadgetHandler:IsSyncedCode()) then
         Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["tllrlrpc_tll_barret"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
         Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armcom_armcomlaser"].id, Script.GetWatchWeapon(WeaponDefNames["armcom_armcomlaser"].id))  
 
-        for i=1,#WeaponDefs do
-          local wd = WeaponDefs[i]
-          Spring.Echo("Dumping wDefs: ",i, wd.name, Script.GetWatchWeapon(i))  
-        end
+        -- for i=1,#WeaponDefs do
+        --   local wd = WeaponDefs[i]
+        --   Spring.Echo("Dumping wDefs: ",i, wd.name, Script.GetWatchWeapon(i))  
+        -- end
     end
     
     -- testing WatchWeapon actually works. 
@@ -82,6 +82,7 @@ if (gadgetHandler:IsSyncedCode()) then
     function gadget:UnitDamaged(unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam)
       Spring.Echo("LightningFork call-in received:", unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam) -- not passing gadget weaponDefID for some reason. 
       Spring.Echo("attacker: ".. UnitDefs[attackerDefID].name) -- NOTE: weaponDefID not being passed to UnitDamaged for some reason
+      
       if sparkWeapons[weaponDefID] then
                 local x,y,z = SpGetUnitPosition(unitID)
                 local angle = rad(mRandom(1,360))
@@ -96,7 +97,7 @@ if (gadgetHandler:IsSyncedCode()) then
                         local nx,ny,nz = SpGetUnitPosition(nearUnit)
                         SpSpawnCEG(sparkWeapons[weaponDefID].ceg,nx,ny,nz,0,0,0)
     	                  SendToUnsynced("splashsound", nx, ny, nz)
-                        SpAddUnitDamage(nearUnit, damage*sparkWeapons[weaponDefID].forkdamage, 0, attackerID)
+                        SpAddUnitDamage(nearUnit, damage*sparkWeapons[weaponDefID].forkdamage, 0, attackerID, weaponDefID)
                         count = count + 1
                     end
                 end
