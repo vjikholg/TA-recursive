@@ -24,7 +24,7 @@ if (gadgetHandler:IsSyncedCode()) then
 ----------------------------------------------------------------
     local sparkWeapons = {
         [ WeaponDefNames["armzeus_arm_lightning"].id] = {ceg = "ZEUS_FLASH_SUB", forkdamage = 0.5, maxunits = 2, radius = 60},
-        [ WeaponDefNames["tllrlrpc_tll_barret"].id ] = {ceg = "tll_spray_exp", forkdamage = 0.5, maxunits = 5, radius = 500}
+        [ WeaponDefNames["tllrlrpc_tll_barret"].id ] = {ceg = "tll_spray_exp", forkdamage = 0.5, maxunits = 4, radius = 500}
     }
 
     local sparkWeaponIDs = {
@@ -35,6 +35,7 @@ if (gadgetHandler:IsSyncedCode()) then
     local immuneToSplash = {
         [UnitDefNames["armzeus"].id] = true,
         [UnitDefNames["armclaw"].id] = true,
+        [UnitDefNames["tllrlrpc"].id] = true,
     }
 
     local mRandom = math.random
@@ -52,58 +53,43 @@ if (gadgetHandler:IsSyncedCode()) then
           Spring.Echo("Weapon:", wID)
           Script.SetWatchWeapon(wID, true)
         end
-      
-        -- testing 
-        Script.SetWatchWeapon( WeaponDefNames["armcom_armcomlaser"].id, true)
-        Script.SetWatchWeapon( WeaponDefNames["armpincer_arm_pincer_gauss"].id, true)
-        Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armzeus_arm_lightning"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
-        Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armpincer_arm_pincer_gauss"].id, Script.GetWatchWeapon(WeaponDefNames["armpincer_arm_pincer_gauss"].id))  
-        Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["tllrlrpc_tll_barret"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
-        Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armcom_armcomlaser"].id, Script.GetWatchWeapon(WeaponDefNames["armcom_armcomlaser"].id))  
-
-        -- for i=1,#WeaponDefs do
-        --   local wd = WeaponDefs[i]
-        --   Spring.Echo("Dumping wDefs: ",i, wd.name, Script.GetWatchWeapon(i))  
-        -- end
     end
     
-    -- testing WatchWeapon actually works. 
-    -- function gadget:GameFrame(f)
-    --     if f % 240 == 0 then  -- every second
-    --       Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armzeus_arm_lightning"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
-    --       Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armpincer_arm_pincer_gauss"].id, Script.GetWatchWeapon(WeaponDefNames["armpincer_arm_pincer_gauss"].id))  
-    --       Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["tllrlrpc_tll_barret"].id, Script.GetWatchWeapon(WeaponDefNames["armzeus_arm_lightning"].id))  
-    --       Spring.Echo("[LightningSplash] GetWatchWeapon", WeaponDefNames["armcom_armcomlaser"].id, Script.GetWatchWeapon(WeaponDefNames["armcom_armcomlaser"].id))  
-    --     end
-    -- end
+
     ----------------------------------------------------------------
     -- Callins
     ----------------------------------------------------------------
     function gadget:UnitDamaged(unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam)
-      Spring.Echo("LightningFork call-in received:", unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam) -- not passing gadget weaponDefID for some reason. 
-      Spring.Echo("attacker: ".. UnitDefs[attackerDefID].name) -- NOTE: weaponDefID not being passed to UnitDamaged for some reason
+        Spring.Echo("LightningFork call-in received:", unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam) -- not passing gadget weaponDefID for some reason. 
+        -- Spring.Echo("attacker: ".. UnitDefs[attackerDefID].name) 
+        -- Spring.Echo("defender:" .. UnitDefs[UnitDefID].name)
       
-      if sparkWeapons[weaponDefID] then
-                local x,y,z = SpGetUnitPosition(unitID)
-                local angle = rad(mRandom(1,360))
-                local nearUnits = SpGetUnitsInSphere(x,y,z,sparkWeapons[weaponDefID].radius)
-                local count = 0
-                for _,nearUnit in ipairs(nearUnits) do
-                    if (count >= sparkWeapons[weaponDefID].maxunits) then
-                        return
-                    end
-                    local nearUnitDefID = SpGetUnitDefID(nearUnit)
-                    if (nearUnit ~= unitID) and (not immuneToSplash[nearUnitDefID]) then
-                        local nx,ny,nz = SpGetUnitPosition(nearUnit)
-                        SpSpawnCEG(sparkWeapons[weaponDefID].ceg,nx,ny,nz,0,0,0)
-    	                  SendToUnsynced("splashsound", nx, ny, nz)
-                        SpAddUnitDamage(nearUnit, damage*sparkWeapons[weaponDefID].forkdamage, 0, attackerID, weaponDefID)
-                        count = count + 1
-                    end
+        if sparkWeapons[weaponDefID] then
+            local x,y,z = SpGetUnitPosition(unitID)
+            local angle = rad(mRandom(1,360))
+            local nearUnits = SpGetUnitsInSphere(x,y,z,sparkWeapons[weaponDefID].radius)
+            local count = 0
+            for _,nearUnit in ipairs(nearUnits) do
+                if (count >= sparkWeapons[weaponDefID].maxunits) then
+                    return
                 end
-            end
-      end
 
+                local nearUnitDefID = SpGetUnitDefID(nearUnit)
+                
+                -- Spring.getUnitTeam(nearUnit)
+                -- nearUnit ~= unitID -> attacker != defender
+                -- unitTeam ~= attackerTeam -> attacker team != defender team
+                if (nearUnit ~= unitID) and (unitTeam ~= attackerTeam) and (not immuneToSplash[nearUnitDefID]) then -- added friendly fire check. 
+                    local nx,ny,nz = SpGetUnitPosition(nearUnit)
+                    SpSpawnCEG(sparkWeapons[weaponDefID].ceg,nx,ny,nz,0,0,0)
+    	                SendToUnsynced("splashsound", nx, ny, nz)
+                    SpAddUnitDamage(nearUnit, damage*sparkWeapons[weaponDefID].forkdamage, 0, attackerID, 0) -- this should fix it, weaponDefID -> 0
+                    count = count + 1                                                                        -- remark that AddUnitDamage can end up calling UnitDamaged recursively  
+                end                                                                                          -- zzz ai gave me crashcode WTF. 
+            end
+        end
+    end
+    
 else
 ----------------------------------------------------------------
 -- Unsynced
@@ -113,7 +99,8 @@ function gadget:Initialize()
 end
 
 function SplashSound(_, x, y, z)
-    Spring.PlaySoundFile("sounds/explosions/lasrhit2.wav", 2, x,y,z)
+    Spring.PlaySoundFile("sounds/explosions/lasrfir2.wav", 2, x,y,z)
 end
 
 end
+
