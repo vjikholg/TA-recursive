@@ -48,6 +48,8 @@ if (gadgetHandler:IsSyncedCode()) then
     local SpGetUnitTeam = Spring.GetUnitTeam
     local SpSpawnProjectile = Spring.SpawnProjectile
 
+    local PURPLE_LIGHTNING_ID = WeaponDefNames["purple_lightning"].id
+
     function gadget:Initialize() 
         Spring.Echo("initializing spark weapons:")
 
@@ -62,7 +64,7 @@ if (gadgetHandler:IsSyncedCode()) then
     -- Callins
     ----------------------------------------------------------------
     function gadget:UnitDamaged(unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam)
-        Spring.Echo("LightningFork call-in received:", unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam) -- not passing gadget weaponDefID for some reason. 
+        -- Spring.Echo("LightningFork call-in received:", unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam) -- not passing gadget weaponDefID for some reason. 
         -- Spring.Echo("attacker: ".. UnitDefs[attackerDefID].name) 
         -- Spring.Echo("defender:" .. UnitDefs[UnitDefID].name)
         if unitTeam == attackerTeam then return end -- if friendly fire -> do not call fork
@@ -83,7 +85,7 @@ if (gadgetHandler:IsSyncedCode()) then
                         local nx,ny,nz = SpGetUnitPosition(nearUnit)
                         SpSpawnProjectile(weaponDefID, {
                             pos = {x,y,z}, 
-                            endpos = {nx,ny,nz},
+                            ["end"] = {nx,ny,nz}, -- BRUH
                             owner = attackerID, 
                             team = attackerTeam, 
                             ttl = 10, 
@@ -91,7 +93,7 @@ if (gadgetHandler:IsSyncedCode()) then
     	                SendToUnsynced("splashsound", nx, ny, nz)
                         SpAddUnitDamage(nearUnit, damage*info.forkdamage, 0, attackerID, 0)  -- this should fix it, weaponDefID -> 0
                         SpSpawnCEG(info.ceg, nx, ny, nz,0,0,0)                               -- remark that AddUnitDamage can end up calling UnitDamaged recursively  
-                        count = count + 1                                                    
+                        count = count + 1                                                    -- remark we can make this better by sending unitDamaged to unsynced
                         if (count >= info.maxunits) then break end                           
                     end                                                                      
                 end
