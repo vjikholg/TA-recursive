@@ -36,7 +36,7 @@ if gadgetHandler:IsSyncedCode() then
     --- @param rFrames integer
     -- rFrames = 30 * reload time of weapon in seconds, so how many frames it takes to reload weapon
     local riftWeapons = {
-      [WeaponDefNames['tlldmc_tlldmc'].id] = {explodedmg = 250, explodenum = 2, rFrames = WeaponDefNames['tlldmc_tlldmc'].reload * 30} 
+      [WeaponDefNames['tlldmc_tlldmc'].id] = {explodedmg = 500, explodenum = 2, rFrames = WeaponDefNames['tlldmc_tlldmc'].reload * 30} 
     }
 
     local riftWeaponReloadCache = {
