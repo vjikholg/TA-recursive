@@ -76,15 +76,16 @@ if gadgetHandler:IsSyncedCode() then
         end
         return nil
     end
-
+    -- queue frame times not position calculation - easy position update by frame 
     function gadget:ProjectileCreated(proID, proOwnerID, proWeaponDefID)
         -- Spring.Echo("Hit proj created")
         if (not lightningWeapon[proWeaponDefID]) then return end -- dont want to fire if not given weapon
         -- -Spring.Echo("passed LightningWeap Test")
 
         local weaponID = GetWeaponNum(proOwnerID,proWeaponDefID) -- grab the weapon where the proj is fired
-        local targetType, _, position = Spring.GetUnitWeaponTarget(proOwnerID, weaponID) 
-        Spring.Echo("target type:", targetType)
+
+        local targetType = Spring.GetUnitWeaponTarget(proOwnerID, weaponID) 
+        
         if (targetType ~= 1 and targetType ~= 2) then return end -- not a position
 
         local curr_f = spGetGameFrame() 
@@ -96,54 +97,27 @@ if gadgetHandler:IsSyncedCode() then
         
         if (curr_f < lightningRetriggerFrames[proOwnerID]) then return end
 
-        -- Spring.Echo("passed retriggering test")
-        local ux, uy, uz ,_ ,_ ,_ = spGetUnitWeaponVectors(proOwnerID, weaponID)
-        -- local ux, uy, uz = spGetUnitPosition(proOwnerID)
-        
-        local tx, ty, tz
-
-        if (targetType == 1) then
-            tx, ty, tz = spGetUnitPosition(position) -- position == unitID if targetType == 1 
-        elseif (targetType == 2) then 
-            tx, ty, tz  = position[1], position[2], position[3] 
-        end
-
-
-
-        -- for k, v in pairs(position) do 
-        --     Spring.Echo("k, v:", k, v)
-        -- end
-        -- Spring.Echo("checking position, tx, ty, tz", position, tx, ty, tz)
-
-        lightningRetriggerFrames[proOwnerID] = curr_f + weaponInfo.rFrames -- makes sure this effect fires once per salvo
-        -- stay under ~15 arcs per second, 1s = 30 frames so 2 arcs/frame with random lifetimes. 
+        lightningRetriggerFrames[proOwnerID] = curr_f + weaponInfo.rFrames 
+        -- makes sure this effect fires once per salvo
+        -- stay under ~15-20 arcs per second, 1s = 30 frames so 2-4 arcs/frame with random lifetimes. 
         -- we'll also want to fire this *around* the beam not inside of it 
         -- pick random positions twice around beam weapon.width/2 + k, k is adjustable
         -- random() * 2_PI twice, use this to determine start & end "cood" of arcs via sine, cosine
         
         local width = weaponInfo.width or 1 -- fallback to 1 if nil
         local beamframes = weaponInfo.beamframes
-        local dist = (width)/2 + ARC_DISPLACEMENT
         if (beamframes % 2 == 1) then beamframes = beamframes + 1 end -- round up in frames literally not noticeable avoids weird edge cases
 
         for i=1, beamframes/2 do 
             for k = 1, 2 do 
-                local startAngle = random() * TWO_PI
-                local endAngle = random() * TWO_PI
                 local arcFrame = curr_f + 2*i -- arcing frame is current frame + 2i 
-                -- "beam" is perpendicular towards Z axis -> Z unchanged 
-
-                local sx, sy, sz = ux + dist * cos(startAngle), uy + dist * sin(startAngle), uz
-                local ex, ey, ez = tx + dist * cos(endAngle), ty + dist * sin(endAngle), tz
                 local lightningInfo = {
-                    spawnInfo = {
-                        pos = {sx, sy, sz}, 
-                        ['end']   = {ex, ey, ez}, 
-                        ttl = 10, 
-                    },
-                    frame = arcFrame,
-                    fx = weaponInfo.weaponFx
-                }
+                    proOwnerID = proOwnerID,
+                    weaponID = weaponID,
+                    weaponDefID = proWeaponDefID,
+                    frame = arcFrame,           -- what frame its triggered on
+                    fx = weaponInfo.weaponFx    -- what effect to use
+                }                               -- dynamically determine coordiates of arc during spawntime
                 lightningEffectQueue[#lightningEffectQueue + 1] = lightningInfo
             end
         end
@@ -152,11 +126,45 @@ if gadgetHandler:IsSyncedCode() then
 -- handle beamFX spawn here
     function gadget:GameFrame(f)
         local i = 1
+        
         while (i <= #lightningEffectQueue) do 
             local lightningInfo = lightningEffectQueue[i]
             if (f >= lightningInfo.frame) then
-                -- ("Lightning effect triggered for frame:" , lightningInfo.spawnInfo)
-                spSpawnProjectile(lightningInfo.fx, lightningInfo.spawnInfo)
+                -- grab necessary spawning info
+                local proOwnerID = lightningInfo.proOwnerID
+                local weaponID = lightningInfo.weaponID
+                local weaponDefID = lightningInfo.weaponDefID
+                local width = lightningWeapon[weaponDefID] and lightningWeapon[weaponDefID].width or 1
+                local dist = (width / 2) + ARC_DISPLACEMENT
+                -- where on beam endpoints do i spawn start, endpoints 
+                local startAngle = random() * TWO_PI
+                local endAngle = random() * TWO_PI
+
+                -- get position of where effect starts 
+                local ux, uy, uz ,_ ,_ ,_ = spGetUnitWeaponVectors(proOwnerID, weaponID)
+
+                -- get position of where effect ends 
+                local tx, ty, tz
+                local targetType, _, position = Spring.GetUnitWeaponTarget(proOwnerID, weaponID) 
+
+                -- determine target type
+                if (targetType == 1) then -- firing at unit
+                    tx, ty, tz = spGetUnitPosition(position) 
+                elseif (targetType == 2) then -- firing at ground
+                    tx, ty, tz  = position[1], position[2], position[3] 
+                end
+
+                -- determines in a circle start/end coordinates
+                local sx, sy, sz = ux + dist * cos(startAngle), uy + dist * sin(startAngle), uz
+                local ex, ey, ez = tx + dist * cos(endAngle), ty + dist * sin(endAngle), tz
+                
+                local projInfo = {
+                    ['pos'] = {sx, sy, sz}, 
+                    ['end'] = {ex, ey, ez},
+                    ['ttl'] = 10,
+                }
+
+                spSpawnProjectile(lightningInfo.fx, projInfo)
                 lightningEffectQueue[i] = lightningEffectQueue[#lightningEffectQueue]
                 lightningEffectQueue[#lightningEffectQueue] = nil
             else
@@ -165,6 +173,17 @@ if gadgetHandler:IsSyncedCode() then
         end
     end
 
+    function gadget:UnitDestroyed(unitID, unitDefID, unitTeam, attackerID, attackerDefID, attackerTeam) -- on unit destroy midfire, we clear queue.
+        if (not lightningWeapon[unitDefID]) then return end 
+        local i = 1
+        while (i < #lightningEffectQueue) do
+            if (lightningEffectQueue[i].proOwnerID == unitID) then
+                lightningEffectQueue[i] = lightningEffectQueue[#lightningEffectQueue]
+                lightningEffectQueue[#lightningEffectQueue] = nil
+            end
+        end
+
+    end
 --  END  SYNCED -- 
 else
 -- BEGIN UNSYNCED --
