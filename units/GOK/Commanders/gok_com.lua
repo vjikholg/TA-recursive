@@ -55,7 +55,7 @@ return {
 		nochasecategory = "ALL",
 		norestrict = 1,
 		objectname = "gok/gok_com.s3o",
-		--objectname = "gok_com_halloween.s3o",
+		--objectname = "events/gok_com_halloween.s3o",
 		radardistance = 750,
 		radaremitheight = 55,
 		reclaimable = false,

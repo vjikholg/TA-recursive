@@ -55,7 +55,7 @@ return {
 		nochasecategory = "ALL",
 		norestrict = 1,
 		objectname = "core/corcom.s3o",
-		--objectname = "corcom_halloween.s3o",
+		--objectname = "events/corcom_halloween.s3o",
 		radardistance = 700,
 		radaremitheight = 55,
 		reclaimable = false,

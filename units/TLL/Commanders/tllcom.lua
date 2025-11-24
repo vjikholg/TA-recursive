@@ -56,7 +56,7 @@ return {
 		nochasecategory = "ALL",
 		norestrict = 1,
 		objectname = "tll/tllcom.s3o",
-		--objectname = "tllcom_halloween.s3o",
+		--objectname = "events/tllcom_halloween.s3o",
 		radardistance = 700,
 		radaremitheight = 55,
 		reclaimable = false,

@@ -169,7 +169,7 @@ return {
 				weapontype = "MissileLauncher",
 				weaponvelocity = 1000,
 				damage = {
-					default = 900,
+					default = 300,
 					subs = 5,
 				},
 			},

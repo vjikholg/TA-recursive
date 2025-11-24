@@ -1,4 +1,49 @@
- 4.81 => 4.82
+ 4.9 => 4.95
+2025-11-02
+
+Halloween event is over!
+
+Improvment :
+
+* Add Box Formation widget (Matrix units v1.5) for unit selection
+* Improve Energy Conversion GUI with draggable slider and live feedback
+
+Balance :
+
+* ARM HLT: new “Weaver Laser” (range 600, reload 1s, energy/shot 40)
+* Talon MCV: adjust values (range 2250->2150, vs Commanders 6250->2250, default 25000->17500)
+* Talon Obelisk: energy cost 148000->327000, metal 5650->3650, mass 5650->3650, shield energy use 750->1250
+* Temporarily disable nuke limit !
+
+
+4.83 => 4.9
+2025-10-16
+
+Halloween is comming !
+
+Improvment :
+ - Delete All-Terrain for Karganeth. Add JetPack and new weapon (Sabot Missible)
+ - Remplace Raptor T4 by Bagheera T4 Spider Arm
+ - Add Gate T3 for ARM
+
+Balance :
+ - T3 Air Core Blackdawn : Increase range 650->700 and decrease damage 350->300
+ - Rumad Overlord : Decrease Range for main turret 1600->1400
+ - HeavyImpact TLL T3 Artillery : Decrease damage, speed and HP
+ - Reactivate Tracking for all AA Missiles
+
+ Fixes :
+- Deleting "Square" from Rocket and Plasma TLL weapon textures
+
+
+4.82 => 4.83
+2025-05-04
+
+Improvment :
+ - Add Talon, Rumad & TLL Gate (Gates for all faction are comming)
+ - Delete Gates from t1 Constructors
+
+4.81 => 4.82
 2025-05-04
 
 Balance:
@@ -21,14 +66,14 @@ Balance:
   - Energy Generation: +90% (5 000 → 9 500)
   - Energy Storage: +400% (5 000 → 25 000)
   - Health (MaxDamage): 2500 → 2300
-  - Explosion: Changed from FUSION_BLAST to KROG_BLAST 
+  - Explosion: Changed from FUSION_BLAST to KROG_BLAST
 
 4.67 => 4.80
 2025-03-31
 
 Balance:
 
-• Unit: Cybran Monkeylord (Experimental Shield Hexapod):  
+• Unit: Cybran Monkeylord (Experimental Shield Hexapod):
   - Weapon Damage: +20% (2500 → 3000)
 
 • Unit: Core Core (Admiral AeroShip)

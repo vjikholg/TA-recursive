@@ -32,17 +32,17 @@ Release versions use the following format for version: test-commit#-commitID, or
 Nixtux, Finky, Zweistein, Skymyj.
 See the credits.txt in main folder to see autorisations.
 
-Many models come from other total Annihilation Community. We asked permission to use all models, script and effects. They provide from : 
-- TAESC (http://taesc.tauniverse.com/)
-- Unit universe Website (http://units.tauniverse.com/)
-- Talon Race on moddb (https://www.moddb.com/mods/talon-race)
-- Maximum Annihilation (https://springrts.com/wiki/Maximum_Annihilation)
-- TA ZERO (http://zero.tauniverse.com/)
+Many models come from other total Annihilation Community. We asked permission to use all models, script and effects. They provide from:
 
+- [TAESC](http://taesc.tauniverse.com/)
+- [Unit universe Website](http://units.tauniverse.com/)
+- [Talon Race on moddb](https://www.moddb.com/mods/talon-race)
+- [Maximum Annihilation](https://springrts.com/wiki/Maximum_Annihilation)
+- [TA ZERO](http://zero.tauniverse.com/)
 
 ## License
 
-Artwork items are licensed under the Attribution-NonCommercial-ShareAlike 4.0 International - see the credit.txt (https://github.com/techannihilation/TA/blob/master/credits.txt)
+Artwork items are licensed under the Attribution-NonCommercial-ShareAlike 4.0 International - see the [credits.txt](https://github.com/techannihilation/TA/blob/master/credits.txt)
 
-Careful, do not use any content! Many of all contents are copyrighted and provide from other games/mode. 
+Careful, do not use any content! Many of all contents are copyrighted and provide from other games/mode.
 Post an Issue if you want to ask us to use a model. We could answer if you can use or not a file we created. In case, of not our work, we could directly send the good person to contact in order to use file.
